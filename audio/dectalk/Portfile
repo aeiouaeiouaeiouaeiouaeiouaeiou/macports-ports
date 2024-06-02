@@ -2,10 +2,15 @@
 
 PortSystem          1.0
 PortGroup           github 1.0
+PortGroup           legacysupport 1.1
+PortGroup           compiler_blacklist_versions 1.0
+
+# CLOCK_MONOTONIC
+legacysupport.newest_darwin_requires_legacy 15
 
 github.setup        dectalk dectalk 2023-10-30
 github.tarball_from archive
-revision            2
+revision            3
 categories          audio
 license             Restrictive
 maintainers         {makr @mohd-akram} openmaintainer
@@ -31,6 +36,13 @@ patchfiles          patch-configure.diff \
                     patch-fix-gspeak.diff \
                     patch-fix-windic.diff \
                     patch-paths.diff
+
+# ../lts/walker.c:490:7: error: duplicate case
+# value '228' occurs on macOS <10.9
+# gnu11 standard is also used
+compiler.c_standard 2011
+compiler.blacklist-append \
+                    {clang < 600}
 
 post-destroot {
     delete ${destroot}/usr/bin
