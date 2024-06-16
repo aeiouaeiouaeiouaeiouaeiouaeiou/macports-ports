@@ -5,8 +5,13 @@ PortGroup           cmake 1.0
 PortGroup           github 1.0
 PortGroup           legacysupport 1.1
 
-# filesystem
+# On macOS < 10.15 built-in libc++ has no support
+# for std::filesystem and std::bad_optional_access
 legacysupport.newest_darwin_requires_legacy 18
+# GCC can be enforced instead of Clang
+if {[string match *clang* ${configure.compiler}]} {
+    legacysupport.use_mp_libcxx yes
+}
 
 github.setup        xournalpp xournalpp 1.2.3 v
 categories          x11 sysutils
