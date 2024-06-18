@@ -3,10 +3,14 @@
 PortSystem          1.0
 PortGroup           github  1.0
 PortGroup           cmake   1.1
+PortGroup           legacysupport 1.1
+
+# CLOCK_MONOTONIC
+legacysupport.newest_darwin_requires_legacy 15
 
 github.setup        fastfetch-cli fastfetch 2.15.0
 github.tarball_from archive
-revision            1
+revision            2
 
 description         \
     Fastfetch is a neofetch-like tool for fetching system information and \
