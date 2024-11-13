@@ -1,0 +1,30 @@
+--- src/btop_shared.hpp
++++ src/btop_shared.hpp
+@@ -28,6 +28,7 @@ tab-size = 4
+ #include <unordered_map>
+ #include <unistd.h>
+ 
++#include <sys/socket.h>
+ // From `man 3 getifaddrs`: <net/if.h> must be included before <ifaddrs.h>
+ // clang-format off
+ #include <net/if.h>
+diff --git a/src/osx/btop_collect.cpp b/src/osx/btop_collect.cpp
+index 4d54e32..9f52deb 100644
+--- src/osx/btop_collect.cpp
++++ src/osx/btop_collect.cpp
+@@ -28,6 +28,7 @@ tab-size = 4
+ #include <mach/processor_info.h>
+ #include <mach/vm_statistics.h>
+ #include <mach/mach_time.h>
++#include <sys/socket.h>
+ // BUGS
+ //     If both <net/if.h> and <ifaddrs.h> are being included, <net/if.h> must be
+ //     included before <ifaddrs.h>.
+@@ -38,7 +39,6 @@ tab-size = 4
+ #include <netdb.h>
+ #include <netinet/tcp_fsm.h>
+ #include <pwd.h>
+-#include <sys/socket.h>
+ #include <sys/statvfs.h>
+ #include <sys/sysctl.h>
+ #include <sys/types.h>
