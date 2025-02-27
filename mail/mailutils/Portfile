@@ -4,8 +4,8 @@ PortSystem          1.0
 PortGroup           legacysupport 1.1
 
 name                mailutils
-version             3.17
-revision            1
+version             3.18
+revision            0
 
 categories          mail
 license             GPL-3
@@ -20,9 +20,9 @@ homepage            https://mailutils.org/
 master_sites        gnu:mailutils
 use_xz              yes
 
-checksums           rmd160  47136641b8119c27b98897b995f9b53844022a24 \
-                    sha256  fa49bacec37566fe52f88221d3871673a633aeee0cd923cc3a8e65bbef2b84e9 \
-                    size    3219484
+checksums           rmd160  d9d34553c7727d154d4dc4510f002667537abc57 \
+                    sha256  559049c8d8516041528a906c139d9bb7a62f1d05d7e5617fa8fe0f231a131577 \
+                    size    3294996
 
 # https://trac.macports.org/ticket/62993
 patchfiles          patch-configure-libtool.diff
