@@ -5,7 +5,7 @@ PortGroup           active_variants 1.1
 PortGroup           compiler_blacklist_versions 1.0
 
 name                xscreensaver
-version             6.09
+version             6.10.1
 revision            0
 categories          x11
 maintainers         nomaintainer
@@ -18,9 +18,9 @@ long_description    The xscreensaver program waits until the keyboard and \
 homepage            https://www.jwz.org/xscreensaver
 master_sites        ${homepage}
 
-checksums           rmd160  19f238c292438c4ba094f221301c0e8472da2eea \
-                    sha256  f4667705adb8cc43fd2f3973a88a1b54b16f20190afe93b21e221f2f57320b05 \
-                    size    22026182
+checksums           rmd160  8cf658813aa08a6371c16576beed2ac58ca0307e \
+                    sha256  ffe599f9cf77afa46efb8dbb7b561e8da0c3156dea64b635e0b7e2c20f4bb3ed \
+                    size    25081752
 
 depends_build       port:pkgconfig \
                     port:intltool \
