@@ -10,6 +10,12 @@ PortGroup           select                        1.0
 PortGroup           legacysupport                 1.1
 PortGroup           openssl                       1.0
 
+# On <10.15 built-in libc++ has no support for std::filesystem
+legacysupport.use_mp_libcxx \
+                    yes
+legacysupport.newest_darwin_requires_legacy \
+                    18
+
 # Please also check if Gate needs a revbump after root6 update
 github.setup        root-project root 6-36-04 v
 # Change github.tarball_from to 'releases' or 'archive' next update
@@ -49,7 +55,7 @@ long_description    The ROOT system provides a set of frameworks with all \
                     of data in a very efficient way.
 
 homepage            https://root.cern.ch/
-platforms           {darwin >= 17}
+platforms           {darwin >= 12}
 
 dist_subdir         root/${version}
 
@@ -135,6 +141,7 @@ configure.args-append \
                     -Droofit=OFF \
                     -Dssl=ON \
                     -Dxml=OFF \
+                    -Dtpython=OFF \
                     -Dpyroot=OFF \
                     -Dfitsio=OFF \
                     -Dpgsql=OFF \
@@ -457,6 +464,7 @@ foreach py_ver ${python_versions} {
 
         # Setup python
         set mypydir ${frameworks_dir}/Python.framework/Versions/${py_ver}
+        configure.args-replace  -Dtpython=OFF -Dtpython=ON
         configure.args-replace  -Dpyroot=OFF  -Dpyroot=ON
         configure.args-append   -DPYTHON_INCLUDE_DIR="${mypydir}/Headers" \
                                 -DPYTHON_EXECUTABLE="${mypydir}/bin/python${py_ver}"
