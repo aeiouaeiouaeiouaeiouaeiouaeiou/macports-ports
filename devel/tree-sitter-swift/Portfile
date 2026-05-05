@@ -4,7 +4,7 @@ PortSystem          1.0
 PortGroup           github 1.0
 PortGroup           tree_sitter 1.0
 
-github.setup        alex-pinkus tree-sitter-swift 0.7.1
+github.setup        alex-pinkus tree-sitter-swift 0.7.2
 
 github.tarball_from archive
 revision            0
@@ -17,9 +17,9 @@ categories          devel
 license             MIT
 maintainers         {amake @amake} openmaintainer
 
-checksums           rmd160  ad7fe46f70f5abf63d90f59ae4082a6b18a22e39 \
-                    sha256  e3bcd98c07243e45ee1e85c3c03359cd38a85645544d8a3d5678076ec5f8c772 \
-                    size    135884
+checksums           rmd160  cc3b7a3c2939954eb3996e1edc2ac01ad0d284d3 \
+                    sha256  ac72ba74369b3ff2ae5c3ab9cdb0d3c2783c991303e8930fe5c2a8772e779949 \
+                    size    136733
 
 worksrcdir          ${worksrcdir}/src
 
