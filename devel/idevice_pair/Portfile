@@ -5,7 +5,7 @@ PortGroup               github 1.0
 PortGroup               cargo  1.0
 PortGroup               app 1.1
 
-github.setup            jkcoxson idevice_pair 0.1.10
+github.setup            jkcoxson idevice_pair 0.1.11
 github.tarball_from     archive
 revision                0
 
@@ -16,10 +16,9 @@ description             Generate pair records for iOS and save them
 long_description        A tiny cross-platform GUI (egui/eframe) for working with iOS pairing files and developer settings—built\
                         on top of the idevice Rust crate.
 
-checksums               ${name}-${version}${extract.suffix} \
-                        rmd160  d5ad4a765d170bfd1b7f0d2d0f4274c40cda1555 \
-                        sha256  397987b2ad2792107c54133750f36a48d46e65dbbc0b071928f4b7e588fa3cb1 \
-                        size    3892794
+checksums               rmd160  79f79cb63edb7f78d8f6ee28d58a9fc8cabc45ac \
+                        sha256  b6dd57c94b7d3b698248a92325147ab9196f5e97a4f0e8cc64678a0a1c7a0dfe \
+                        size    3897263
 
 # rust-i18n
 cargo.offline_cmd
