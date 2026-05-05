@@ -1,5 +1,5 @@
-PortSystem 1.0
-PortGroup java 1.0
+PortSystem			1.0
+PortGroup			java 1.0
 PortGroup 			maven 1.0
 
 name				commons-codec
@@ -32,6 +32,6 @@ destroot	{
 		${destroot}${prefix}/share/java/
 }
 
-livecheck.type  regex
-livecheck.url   https://commons.apache.org/proper/commons-codec/download_codec.cgi
-livecheck.regex "${name}-(\\d+\\.\\d+(\\.\\d+)?)-src.tar.gz"
+livecheck.type		regex
+livecheck.url		https://commons.apache.org/proper/commons-codec/download_codec.cgi
+livecheck.regex		"${name}-(\\d+\\.\\d+(\\.\\d+)?)-src.tar.gz"
