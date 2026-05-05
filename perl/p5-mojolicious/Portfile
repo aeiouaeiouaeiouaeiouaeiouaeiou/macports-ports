@@ -4,7 +4,7 @@ PortSystem          1.0
 PortGroup           perl5 1.0
 
 perl5.branches      5.28 5.30 5.32 5.34
-perl5.setup         Mojolicious 9.43 ../../authors/id/S/SR/SRI
+perl5.setup         Mojolicious 9.45 ../../authors/id/S/SR/SRI
 revision            0
 epoch               2
 categories-append   www
@@ -17,9 +17,9 @@ long_description    {*}${description}
 platforms           {darwin any}
 supported_archs     noarch
 
-checksums           rmd160  5d24efe8d7f2f39cc8ab1b00bda2bd6c7c571e56 \
-                    sha256  5d5badedc4bb5fd9f1b6a00fd2f1a068aac47cca4512b8d67aab609d952d328b \
-                    size    954203
+checksums           rmd160  57a132072c9b7b5f21c5a57c4f41e63e215b010a \
+                    sha256  d311daa447115fa19b0a4ad1fa301f1c5564bc528338138f2bfc59aabf8a54e8 \
+                    size    956017
 
 if {${perl5.major} != ""} {
     depends_lib-append \
