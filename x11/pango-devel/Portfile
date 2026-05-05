@@ -62,7 +62,6 @@ if { [string match *clang* ${configure.compiler}] } {
 
 compiler.c_standard     2011
 compiler.cxx_standard   2011
-compiler.blacklist-append {clang < 900}
 configure.cxxflags-append \
                         -std=c++11
 
@@ -107,6 +106,11 @@ if {${os.platform} eq "darwin" && ${os.subplatform} eq "macosx"} {
     if {[variant_isset quartz]} {
         require_active_variants path:lib/pkgconfig/cairo.pc:cairo quartz
     }
+}
+
+# viewer-cocoa.m fails to compile, uses features present in SDK 10.12 and above
+if {${os.platform} eq "darwin" && ${os.major} < 16} {
+    patchfiles-append   patch-no-viewer-cocoa.m-below-10.12.diff
 }
 
 variant x11 {

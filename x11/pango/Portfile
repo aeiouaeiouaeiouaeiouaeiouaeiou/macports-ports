@@ -107,6 +107,11 @@ if {${os.platform} eq "darwin" && ${os.subplatform} eq "macosx"} {
     }
 }
 
+# viewer-cocoa.m fails to compile, uses features present in SDK 10.12 and above
+if {${os.platform} eq "darwin" && ${os.major} < 16} {
+    patchfiles-append   patch-no-viewer-cocoa.m-below-10.12.diff
+}
+
 variant x11 {
     depends_lib-append  port:Xft2
     configure.args-replace \
