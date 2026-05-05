@@ -3,7 +3,7 @@
 PortSystem          1.0
 PortGroup           github 1.0
 
-github.setup        vcrhonek hwdata 0.406 v
+github.setup        vcrhonek hwdata 0.407 v
 github.tarball_from archive
 revision            0
 categories          sysutils
@@ -18,9 +18,9 @@ long_description    hwdata contains various hardware identification and \
                     configuration data, such as the pci.ids and usb.ids \
                     databases.
 
-checksums           rmd160  dd6bcccf42bfa7568de2a7fc8061c7a76578a941 \
-                    sha256  1ccfd1ca723595b1fe8794f4157ec5635be1ebedb5d13769b4be75d0b75bc199 \
-                    size    2596307
+checksums           rmd160  3d3b9244825679c99763d7f2ec1ab5681207d498 \
+                    sha256  6a88f6f5cb510fbfaa9c49488348b7fcd7aa209b0a331f24dfebb1c8c339568b \
+                    size    2616442
 
 platform darwin {
     configure.args-append   --disable-blacklist
