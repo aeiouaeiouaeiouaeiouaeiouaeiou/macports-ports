@@ -8,7 +8,7 @@ name                audacious-plugins
 
 # Please keep audacious, audacious-core and audacious-plugins synchronized.
 version             4.5.1
-revision            3
+revision            4
 
 # FIXME: probably more licenses involved here...
 license             BSD GPL-2+
@@ -423,7 +423,7 @@ variant gtk3 conflicts gtk2 description {Add GTK3 support} {
     require_active_variants audacious-core gtk3
 }
 
-variant full requires mp3 mpris2 wavpack aac sndfile modplug openmpt sid \
+variant full requires mp3 mpris2 wavpack aac sndfile modplug openmpt \
                       midi cdaudio lastfm mms neon cue flac transform \
                       vorbis opus adplug bs2b notifications \
              description {Build all plugins, except additional sound output plugins and potentially conflicting variants} {}
