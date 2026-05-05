@@ -4,7 +4,7 @@ PortSystem          1.0
 PortGroup           pub 1.0
 PortGroup           github 1.0
 
-github.setup        leoafarias fvm 4.0.5
+github.setup        leoafarias fvm 4.1.0
 github.tarball_from archive
 
 categories          devel
@@ -19,9 +19,9 @@ long_description    ${description}
 test.run            yes
 
 checksums           ${distname}${extract.suffix} \
-                        rmd160  dfe67ea325b5f87ce3abf23fae1af2a14570beb7 \
-                        sha256  2434d6fd2072548ac0e59c3c6c90554db46e6cdfd97ba79ffbcd270a8eb24b44 \
-                        size    662804
+                        rmd160  031a579b24a0306ab824aba441c65ebf51315521 \
+                        sha256  44f24d6bef61f78fef509415bc8974fcd60c5ffe937f9a4d9b17fe26c55670a2 \
+                        size    707112
 
 pub.packages \
     _fe_analyzer_shared          80.0.0  dc27559385e905ad30838356c5f5d574014ba39872d732111cd07ac0beff4c57 \
