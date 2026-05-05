@@ -4,7 +4,7 @@ PortSystem          1.0
 PortGroup           python 1.0
 
 name                py-pythonqwt
-version             0.15.0
+version             0.16.0
 revision            0
 
 platforms           {darwin any}
@@ -17,9 +17,9 @@ long_description    {*}${description}
 
 homepage            https://github.com/PlotPyStack/PythonQwt
 
-checksums           rmd160  b20f33d55727be7417d2679343696ab6a48f5b4f \
-                    sha256  de0bc399eb0b69ea281493829bccaddd4d2066bb6ab5a8cec8426d4d4198ed74 \
-                    size    1221219
+checksums           rmd160  0077df60c61e08c4e5f584c349c35c5a6ab6b38f \
+                    sha256  47edc8ee8440cb482c9edef5540246b6b792c0272c49c1408baf04a6491beda7 \
+                    size    1234388
 
 python.versions     313 314
 
