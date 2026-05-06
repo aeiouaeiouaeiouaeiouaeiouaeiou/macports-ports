@@ -4,7 +4,7 @@ PortSystem          1.0
 PortGroup           perl5 1.0
 
 perl5.branches      5.28 5.30 5.32 5.34
-perl5.setup         Test-MockModule v0.183.0 ../../authors/id/G/GF/GFRANKS
+perl5.setup         Test-MockModule v0.184.0 ../../authors/id/G/GF/GFRANKS
 revision            0
 maintainers         nomaintainer
 license             {Artistic-1 GPL}
@@ -14,9 +14,9 @@ long_description    {*}${description}
 supported_archs     noarch
 platforms           {darwin any}
 
-checksums           rmd160  05f651199d01eda0ad3610413a13f473d4c8fd8d \
-                    sha256  efca79fd8fb1105938200cf322cff765895963a0ab059766e4e5fe873fb4869c \
-                    size    44264
+checksums           rmd160  ae0692cb7bab5ffcbdb1d51e360367cff621bf3e \
+                    sha256  07391964d7588b440cada69613054aff37cd8ff618df79ca1066365ae46ad638 \
+                    size    45702
 
 if {${perl5.major} != ""} {
     depends_build-append \
