@@ -9,7 +9,7 @@ github.tarball_from archive
 revision            0
 
 categories          science
-license             MPL-2.0
+license             {MPL-2.0 LGPL-3}
 maintainers         {reneeotten @reneeotten} openmaintainer
 
 description         macromolecular crystallography library and utilities
