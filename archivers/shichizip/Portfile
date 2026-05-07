@@ -29,6 +29,22 @@ depends_build-append    port:zig-bootstrap
 
 extract.rename          yes
 
+# fix header lookup on case-sensitive fs: https://github.com/idawnlight/ShichiZip/issues/19
+post-patch {
+    fs-traverse f ${worksrcpath}/vendor {
+        if {[file isfile ${f}] && [regexp {\.(c|cc|cpp|cxx|h|hpp|hh|rc)$} ${f}] && [file readable ${f}]} {
+            set fd [open ${f} r]
+            fconfigure ${fd} -translation binary
+            set contents [read ${fd}]
+            close ${fd}
+
+            if {[string first "<CommCtrl.h>" ${contents}] != -1} {
+                reinplace "s|<CommCtrl\\.h>|<commctrl.h>|g" ${f}
+            }
+        }
+    }
+}
+
 if {![variant_isset zstd]} {
     # 7zip standard
     set variant_suffix  ""
