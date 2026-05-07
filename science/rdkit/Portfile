@@ -102,12 +102,6 @@ if {[string match *gcc* ${configure.compiler}] && ${configure.build_arch} in [li
                     -latomic
 }
 
-if {${os.platform} eq "darwin" && ${os.major} <= 19} {
-    # error: implicit instantiation of undefined template 'std::vector<double>'
-    configure.args-append \
-                    -DRDK_BUILD_CHEMDRAW_SUPPORT=OFF
-}
-
 post-destroot {
     # conflicts with the file isntalled by the "expat" port
     file delete ${destroot}${prefix}/lib/libexpat.a
