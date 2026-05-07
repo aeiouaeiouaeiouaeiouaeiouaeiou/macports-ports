@@ -3,7 +3,7 @@
 PortSystem          1.0
 
 name                dart-sdk
-version             3.11.5
+version             3.11.6
 categories          lang
 license             BSD
 maintainers         {amake @amake} openmaintainer
@@ -25,14 +25,14 @@ worksrcdir          ${name}
 
 if {${configure.build_arch} eq "x86_64"} {
     distname     dartsdk-macos-x64-release
-    checksums    rmd160  a365b294bef1bb99f4f577c29f470bac863bd71f \
-                 sha256  94de6a18049c354026f5422446b311cfc96b51db6d316eeb7ca46ff14c0b8aaa \
-                 size    213995209
+    checksums    rmd160  7e3375494395c591223016f045206bd59d686106 \
+                 sha256  81c726df7c196a5b481a51cec04c6c102c51c8e14c796f85759beeecced8721c \
+                 size    214007088
 } elseif {${configure.build_arch} eq "arm64"} {
     distname     dartsdk-macos-arm64-release
-    checksums    rmd160  c819b9d1ff61b6006f1e723e2297bf0d9bfddc02 \
-                 sha256  3fd03deb3b0c7897a9896c3f5f3dda4a9fe63c43b14364ee928ec6db348be0ac \
-                 size    211466395
+    checksums    rmd160  4e7535749c759be911ba3939e5979eff8423e008 \
+                 sha256  d3d888758f313af0cba74dcca157d2841772c96e0d47c64dd52bd54dcf11af76 \
+                 size    211454793
 }
 
 use_configure       no
