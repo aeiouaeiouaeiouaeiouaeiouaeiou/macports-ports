@@ -49,7 +49,8 @@ universal_variant       no
 xcode.scheme            "${github.project}[string toupper ${variant_suffix}]"
 xcode.configuration     Release
 xcode.build.settings-append \
-                        CODE_SIGN_IDENTITY=-
+                        CODE_SIGN_IDENTITY=- \
+                        -derivedDataPath ./DerivedData
 
 destroot {
     file copy {*}[glob ${worksrcpath}/build/${xcode.configuration}/${github.project}*.app] ${destroot}${applications_dir}
