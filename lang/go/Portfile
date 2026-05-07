@@ -73,7 +73,7 @@ subport ${name}-devel {
 
     # macOS 12 and up - latest version
     } else {
-        version         1.26.0
+        version         1.26.3
         revision        0
         epoch           2
     }
@@ -131,17 +131,17 @@ if {$subport eq "${name}-devel"} {
     # Go (DEVEL / UNSTABLE) - LATEST
      } else {
          checksums  ${go_src_dist} \
-                    rmd160  006a6eefc428fcae5144fe2bf605eb1064580071 \
-                    sha256  c9132a8a1f6bd2aa4aad1d74b8231d95274950483a4950657ee6c56e6e817790 \
-                    size    34095450 \
+                    rmd160  4ff18b44fe0e541019280cce86ca5036f6185ef8 \
+                    sha256  1c646875d0aa8799133184ed57cf79ff24bdefe8c8820470602a9d3d6d9192b8 \
+                    size    34119059 \
                     ${go_armbin_dist} \
-                    rmd160  15ff9aec96968ac92cb3441deac0797028c630be \
-                    sha256  b1640525dfe68f066d56f200bef7bf4dce955a1a893bd061de6754c211431023 \
-                    size    64636141 \
+                    rmd160  79c5d7bacd36a3cbf091c2f8b78f99564c306a5f \
+                    sha256  875cf54a15311eee2c99b9dd67c68c4a49351d489ab622bf2cfd28c8f2078d3c \
+                    size    64724939 \
                     ${go_amdbin_dist} \
-                    rmd160  2d8d546d5cd3531ef7cb596f9d1ee239ff4c710b \
-                    sha256  1ca28b7703cbea05a65b2a1d92d6b308610ef92f8824578a0874f2e60c9d5a22 \
-                    size    67708850
+                    rmd160  9bc21fc77acebeb9cb54717ebbce2af41b819339 \
+                    sha256  278d580b32e299fe4a9c990fcf2d02acfe538c7e551a6ee18f9c7164573d2c63 \
+                    size    67816500
      }
 
     livecheck.regex {go([0-9.A-z]+)\.src\.tar\.gz}
