@@ -96,6 +96,12 @@ configure.args-append \
                     -DRDK_INSTALL_PYTHON_TESTS=OFF \
                     -DPYTHON_INSTDIR=${mypydir}/lib/python${py_ver}/site-packages
 
+# https://trac.macports.org/ticket/73463
+if {[string match *gcc* ${configure.compiler}] && ${configure.build_arch} in [list arm i386 ppc]} {
+    configure.ldflags-append \
+                    -latomic
+}
+
 if {${os.platform} eq "darwin" && ${os.major} <= 19} {
     # error: implicit instantiation of undefined template 'std::vector<double>'
     configure.args-append \
