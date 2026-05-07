@@ -4,7 +4,7 @@ PortSystem          1.0
 PortGroup           python 1.0
 
 name                py-uv-build
-version             0.11.9
+version             0.11.11
 revision            0
 
 categories-append   devel
@@ -20,9 +20,9 @@ homepage            https://pypi.org/project/uv/
 
 distname            uv_build-${version}
 
-checksums           rmd160  44211ad0387f1ab2c2d1853d47a5162e19bce4f0 \
-                    sha256  2d412aa26883e6d89233653e1cdb4e0bcb0374c943fea4c84a1da7aecfed1d33 \
-                    size    376728
+checksums           rmd160  5c208f37c361ebfcb1e3ee43354893d240fa7e2a \
+                    sha256  e3be571949306426c7c9c73816d0151e6fc04447a348914d901277d76468d752 \
+                    size    376722
 
 python.versions     310 311 312 313 314
 python.pep517_backend maturin
