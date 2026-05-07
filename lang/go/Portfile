@@ -46,7 +46,7 @@ if {${os.platform} eq "darwin" && ${os.major} < 17} {
 
     # macOS 12 and up - latest version
     } else {
-        version         1.26.2
+        version         1.26.3
         set unsupported_macos false
         set unsupported_macos_386 false
         revision        0
@@ -197,17 +197,17 @@ if {$subport eq "${name}-devel"} {
         } else {
 
             checksums   ${go_src_dist} \
-                        rmd160  938699d01b54ddb109ba7deb72e2b0b9ff1b58a9 \
-                        sha256  2e91ebb6947a96e9436fb2b3926a8802efe63a6d375dffec4f82aa9dbd6fd43b \
-                        size    34120738 \
+                        rmd160  4ff18b44fe0e541019280cce86ca5036f6185ef8 \
+                        sha256  1c646875d0aa8799133184ed57cf79ff24bdefe8c8820470602a9d3d6d9192b8 \
+                        size    34119059 \
                         ${go_armbin_dist} \
-                        rmd160  7ba8cdb6e199de792aaa040a3c5980a067c67218 \
-                        sha256  32af1522bf3e3ff3975864780a429cc0b41d190ec7bf90faa661d6d64566e7af \
-                        size    64664058 \
+                        rmd160  79c5d7bacd36a3cbf091c2f8b78f99564c306a5f \
+                        sha256  875cf54a15311eee2c99b9dd67c68c4a49351d489ab622bf2cfd28c8f2078d3c \
+                        size    64724939 \
                         ${go_amdbin_dist} \
-                        rmd160  4243ad91f9596e2cb4ee7b1387126d0134183b2c \
-                        sha256  bc3f1500d9968c36d705442d90ba91addf9271665033748b82532682e90a7966 \
-                        size    67755361
+                        rmd160  9bc21fc77acebeb9cb54717ebbce2af41b819339 \
+                        sha256  278d580b32e299fe4a9c990fcf2d02acfe538c7e551a6ee18f9c7164573d2c63 \
+                        size    67816500
         }
     }
 
