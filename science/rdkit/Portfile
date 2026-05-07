@@ -47,6 +47,8 @@ set mypydir         ${frameworks_dir}/Python.framework/Versions/${py_ver}
 # avoid errors for 'TARGET_OS_*' is not defined in External/ChemDraw
 patchfiles-append   patch-ChemDraw-CMakeLists.txt
 
+patchfiles-append   vector.patch
+
 depends_build-append \
                     path:bin/pkg-config:pkgconfig
 
