@@ -44,6 +44,11 @@ set py_ver          3.14
 set py_ver_nodot    [string map {. {}} ${py_ver}]
 set mypydir         ${frameworks_dir}/Python.framework/Versions/${py_ver}
 
+# avoid errors for 'TARGET_OS_*' is not defined in External/ChemDraw
+# upstream patched only the case for AppleClang as compiler, older OSes use
+# macports-clang-XY still experience the issue
+patchfiles-append   patch-ChemDraw-CMakeLists.txt
+
 patchfiles-append   vector.patch
 
 depends_build-append \
