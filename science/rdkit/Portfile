@@ -7,7 +7,7 @@ PortGroup           github 1.0
 PortGroup           legacysupport 1.1
 PortGroup           conflicts_build 1.0
 
-github.setup        rdkit rdkit 2025_09_6 Release_
+github.setup        rdkit rdkit 2026_03_2 Release_
 github.tarball_from archive
 version             [join [split ${github.version} _] .]
 revision            0
@@ -22,9 +22,9 @@ long_description    RDKit is a collection of cheminformatics and \
 
 homepage            https://www.rdkit.org/
 
-checksums           rmd160  47220b6ac93ea87d50683ff42f9c89b1b52fffae \
-                    sha256  57b92e8f47d9dbd559bd808d5cf6c48a628bc36118bc35b832a35e2ca8a0c7a1 \
-                    size    82903102
+checksums           rmd160  b83fe28ad0e49779d83715c8a6179b3c0d235d95 \
+                    sha256  9bea418c32b553920dc3491b282bbfc47e10728ad20ea874ca47c38cc1b0818b \
+                    size    83084088
 
 # some of the vendored dependencies in the "External" directory fail to build
 # when the "boost" port is installed; likely because they pick up libraries in ${prefix}/lib
@@ -44,11 +44,7 @@ set py_ver          3.14
 set py_ver_nodot    [string map {. {}} ${py_ver}]
 set mypydir         ${frameworks_dir}/Python.framework/Versions/${py_ver}
 
-# avoid errors for 'TARGET_OS_*' is not defined in External/ChemDraw
-patchfiles-append   patch-ChemDraw-CMakeLists.txt
-
 patchfiles-append   vector.patch
-
 
 depends_build-append \
                     path:bin/pkg-config:pkgconfig
