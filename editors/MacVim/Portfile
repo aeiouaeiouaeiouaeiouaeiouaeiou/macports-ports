@@ -276,3 +276,9 @@ variant lua description {Enable Lua scripting} {
 variant cscope description {Enable source code browsing with cscope} {
     configure.args-append   --enable-cscope
 }
+
+variant sodium description {Enable libsodium encryption} {
+    depends_lib-append      port:libsodium
+    depends_build-append    path:bin/pkg-config:pkgconfig
+    configure.args-replace  --disable-libsodium --enable-libsodium
+}
