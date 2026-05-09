@@ -1,11 +1,9 @@
 # -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
 
 PortSystem          1.0
-PortGroup           cmake 1.0
+PortGroup           cmake 1.1
 PortGroup           github 1.0
 
-# don't forget to revbump gstreamer1-gst-plugins-bad if
-# update of chromaprint results in an ABI break
 github.setup        acoustid chromaprint 1.6.0 v
 github.tarball_from archive
 revision            0
@@ -27,13 +25,14 @@ checksums           rmd160  420e21f6ab10ba3e06536cb3bef60948dbb12f1f \
 
 compiler.cxx_standard 2011
 
-depends_build-append  port:gmake
-depends_lib-append  path:lib/libavcodec.dylib:ffmpeg \
-                    port:fftw-3
+set ffmpeg_ver      8
 
-cmake.out_of_source yes
+depends_lib-append      port:ffmpeg${ffmpeg_ver} \
+                        port:zlib
 
-configure.args-append   -DBUILD_TESTS=OFF -DBUILD_TOOLS=ON
+configure.args-append   -DBUILD_TESTS=OFF \
+                        -DBUILD_TOOLS=ON \
+                        -DFFMPEG_ROOT=${prefix}/libexec/ffmpeg${ffmpeg_ver}
 
 variant tests description {Enable tests} {
     configure.args-replace \
