@@ -7,7 +7,7 @@ PortGroup           gobject_introspection 1.0
 name                gegl-0.3
 set gname           gegl
 version             0.3.34
-revision            17
+revision            18
 set branch          [join [lrange [split ${version} .] 0 1] .]
 license             {GPL-3+ LGPL-3+}
 categories          graphics
@@ -29,6 +29,8 @@ distname            ${gname}-${version}
 checksums           rmd160  d9f4ffbb1be827a8dbd4fc10e828325b4b85e384 \
                     sha256  5ca2227655ebf1ab2e252cee3eede219c758336394288ef301b93264b9411304 \
                     size    6707964
+
+set ffmpeg_ver      4
 
 depends_build-append \
                     port:enscript \
@@ -52,7 +54,7 @@ depends_lib-append  path:lib/pkgconfig/babl-0.1.pc:babl \
                     port:lensfun \
                     port:libraw \
                     path:lib/pkgconfig/librsvg-2.0.pc:librsvg \
-                    path:lib/libavcodec.dylib:ffmpeg \
+                    port:ffmpeg${ffmpeg_ver} \
                     port:libspiro \
                     path:bin/vala:vala \
                     port:webp
@@ -78,9 +80,16 @@ post-patch {
         reinplace {s|OpenGL/CGLDevice\.h|OpenGL/CGLTypes.h|} \
                     ${worksrcpath}/gegl/opencl/cl_gl.h
     }
+    # Fix ffmpeg headers being used instead of ffmpeg4
+    reinplace "s|/usr/include|${prefix}/include|" ${worksrcpath}/m4/lib-link.m4
 }
 
 gobject_introspection yes
+
+configure.env-append    PKG_CONFIG_SYSTEM_LIBRARY_PATH=${prefix}/lib
+
+configure.pkg_config_path-append \
+                ${prefix}/libexec/ffmpeg${ffmpeg_ver}/lib/pkgconfig
 
 configure.pkg_config_path-append \
                 ${prefix}/libexec/openexr2/lib/pkgconfig
@@ -88,6 +97,9 @@ configure.pkg_config_path-append \
 # https://trac.macports.org/ticket/63663
 compiler.cxx_standard 2011
 configure.cxxflags-append  -std=gnu++11
+
+configure.cppflags-delete   -I${prefix}/include
+configure.ldflags-delete    -L${prefix}/lib
 
 use_autoreconf      yes
 autoreconf.args     -fvi
