@@ -3,7 +3,7 @@
 PortSystem          1.0
 PortGroup           golang 1.0
 
-go.setup            github.com/cloudentity/oauth2c 1.19.0 v
+go.setup            github.com/cloudentity/oauth2c 1.20.0 v
 go.offline_build    no
 revision            0
 
@@ -19,9 +19,9 @@ license             Apache-2
 maintainers         {gmail.com:herby.gillot @herbygillot} \
                     openmaintainer
 
-checksums           rmd160  55c8161bbb987fa0cb19b54b046f5edad64651c6 \
-                    sha256  ff2b46b344b3444e344bba336fefe6e7706b3196b69c4e38c9e95dd527110745 \
-                    size    51341
+checksums           rmd160  99c73ceec50d8f315579660a989d9b4c7362a56d \
+                    sha256  36606ec1c5eca7c7fff6bb87d4171031ddc5bfb93474eaf97191fe16b9902f24 \
+                    size    50770
 
 destroot {
     xinstall -m 0755 ${worksrcpath}/${name} ${destroot}${prefix}/bin/
