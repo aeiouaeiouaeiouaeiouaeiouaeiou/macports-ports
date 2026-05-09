@@ -98,8 +98,8 @@ configure.pkg_config_path-append \
 compiler.cxx_standard 2011
 configure.cxxflags-append  -std=gnu++11
 
-configure.cppflags-delete   -I${prefix}/include
-configure.ldflags-delete    -L${prefix}/lib
+# Ensure ffmpeg4 gets picked up
+compiler.limit_flags    yes
 
 use_autoreconf      yes
 autoreconf.args     -fvi
