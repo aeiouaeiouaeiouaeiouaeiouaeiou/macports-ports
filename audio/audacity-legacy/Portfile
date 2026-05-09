@@ -44,7 +44,7 @@ conflicts       ${name}
 github.setup    audacity audacity 2.4.2 Audacity-
 # Change github.tarball_from to 'releases' or 'archive' next update
 github.tarball_from tarball
-revision        3
+revision        4
 checksums       rmd160  d9e04c029a144800e378a6b5464c74f3fdb2a7e2 \
                 sha256  032273e2408ad51f97c6846ac8d8fe9e4a3fbc6e4c620e630ea4c1d0124d9a94 \
                 size    61254313
@@ -58,6 +58,10 @@ if {![variant_exists wxsystem] || [variant_isset wxsystem]} {
 } else {
     depends_fetch-append \
                     bin:wget:wget
+}
+
+if {![variant_isset wx32]} {
+    default_variants    +wx30
 }
 
 supported_archs     x86_64 arm64
@@ -97,8 +101,7 @@ if {[variant_isset wxsystem]} {
     } elseif {[variant_exists wx30] && [variant_isset wx30]} {
         wxWidgets.use   wxWidgets-3.0
     } else {
-        # we want to use the temporary wxWidgets-3.1 "Audacity-special" port!
-        wxWidgets.use   wxWidgets-3.1
+        error "+wxsystem requires +wx30 or +wx32"
     }
 
     require_active_variants ${wxWidgets.port} "" stdlib
@@ -124,9 +127,10 @@ if {[variant_isset wxsystem]} {
                     path:include/turbojpeg.h:libjpeg-turbo \
                     port:tiff \
                     port:libpng \
-                    port:zlib \
                     port:libiconv
 }
+
+set ffmpeg_ver      4
 
 depends_build-append \
                     port:pkgconfig \
@@ -139,12 +143,13 @@ depends_lib-append  port:freetype \
                     port:soxr \
                     port:twolame \
                     port:expat \
-                    path:lib/libavcodec.dylib:ffmpeg \
+                    port:ffmpeg${ffmpeg_ver} \
                     port:flac \
                     port:lame \
                     port:libogg \
                     port:libsndfile \
-                    port:libvorbis
+                    port:libvorbis \
+                    port:zlib
 if {${os.arch} ne "arm"} {
     depends_lib-append \
                     port:libid3tag \
@@ -212,8 +217,13 @@ platform darwin {
 # required when building against port:wxWidgets-3.1 but it won't hurt either.
 patchfiles-append   ${PPREFIX}patch-cmakefiles.diff
 
+cmake.module_path-append   ${prefix}/libexec/ffmpeg${ffmpeg_ver}
+configure.pkg_config_path-append \
+                    ${prefix}/libexec/ffmpeg${ffmpeg_ver}/lib/pkgconfig
 
 # quelch a huge number of warnings
+configure.cflags-append \
+                    -Wno-implicit-int
 configure.cxxflags-append \
                     -Wno-inconsistent-missing-override \
                     -Wno-overloaded-virtual
