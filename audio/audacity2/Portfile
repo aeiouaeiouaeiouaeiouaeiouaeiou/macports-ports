@@ -4,11 +4,12 @@ PortSystem          1.0
 
 PortGroup           github 1.0
 
-name                audacity-legacy
+name                audacity2
 categories          audio
 maintainers         nomaintainer
 license             GPL-2+
 universal_variant   no
+
 
 set aud_app_path    ${applications_dir}/Audacity.app
 
@@ -38,16 +39,15 @@ long_description-append \
                 if you have a need to exchange native projects with people using Audacity versions \
                 older than 3.0.0 .
 
-conflicts       ${name}
+conflicts           audacity
 # get the source tarball from github because it contains all required external libs
 # incl. those not in MacPorts.
 github.setup    audacity audacity 2.4.2 Audacity-
-# Change github.tarball_from to 'releases' or 'archive' next update
-github.tarball_from tarball
-revision        4
-checksums       rmd160  d9e04c029a144800e378a6b5464c74f3fdb2a7e2 \
-                sha256  032273e2408ad51f97c6846ac8d8fe9e4a3fbc6e4c620e630ea4c1d0124d9a94 \
-                size    61254313
+github.tarball_from archive
+revision        0
+checksums       rmd160  fae613ada7ffbcf17ff3b2794e0c9ce785caa00b \
+                sha256  cdb4800c8e9d1d4ca19964caf8d24000f80286ebd8a4db566c2622449744c099 \
+                size    61248430
 set PPREFIX     ./
 variant wx30 conflicts wx32 requires wxsystem description {build against wxWidgets-3.0} {}
 
@@ -420,5 +420,15 @@ notes "
     under ${prefix}/lib in the Libraries section of the Preferences dialog (see\
     http://manual.audacityteam.org/man/installing_and_updating_audacity_on_mac_os_x.html#locate)
 "
+
+subport audacity-legacy {
+    PortGroup           obsolete 1.0
+
+    name                audacity-legacy
+    replaced_by         audacity2
+    version             2.4.2
+    revision            5
+    categories          audio
+}
 
 # kate: backspace-indents true; indent-pasted-text true; indent-width 4; keep-extra-spaces true; remove-trailing-spaces modified; replace-tabs true; replace-tabs-save true; syntax Tcl/Tk; tab-indents true; tab-width 4;
