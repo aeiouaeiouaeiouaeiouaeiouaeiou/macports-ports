@@ -3,7 +3,7 @@
 PortSystem          1.0
 PortGroup           github 1.0
 
-github.setup        cisco ChezScheme 10.3.0 v
+github.setup        cisco ChezScheme 10.4.0 v
 revision            0
 name                chez-scheme
 categories          lang
@@ -21,9 +21,9 @@ homepage            https://cisco.github.io/ChezScheme/
 
 distname            csv${version}
 
-checksums           rmd160  382938f5b31a16c74c75c2039ab7eec6b60b6d8e \
-                    sha256  d237d9874c6e8b0ccf7758daa8286a6e825528b13ce3b2bca56eb1f73cddbc2c \
-                    size    9227320
+checksums           rmd160  34abf405194656b394ed628fc307fc669ff355a6 \
+                    sha256  54d0d19e4cd51878f88fb4b7ddb44079be6ca12bcf14163f8ea53cbcb4633385 \
+                    size    9584467
 
 depends_lib         port:zlib \
                     port:lz4 \
