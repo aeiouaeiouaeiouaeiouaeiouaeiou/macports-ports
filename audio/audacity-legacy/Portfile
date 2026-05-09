@@ -52,16 +52,18 @@ set PPREFIX     ./
 variant wx30 conflicts wx32 requires wxsystem description {build against wxWidgets-3.0} {}
 
 variant wx32 conflicts wx30 requires wxsystem description {build against wxWidgets-3.2} {}
+
+default_variants    +wxsystem
+if {![variant_isset wx32]} {
+    default_variants    +wx30
+}
+
 if {![variant_exists wxsystem] || [variant_isset wxsystem]} {
     PortGroup       wxWidgets 1.0
 
 } else {
     depends_fetch-append \
                     bin:wget:wget
-}
-
-if {![variant_isset wx32]} {
-    default_variants    +wx30
 }
 
 supported_archs     x86_64 arm64
