@@ -6,9 +6,8 @@ PortGroup           github 1.0
 
 # don't forget to revbump gstreamer1-gst-plugins-bad if
 # update of chromaprint results in an ABI break
-github.setup        acoustid chromaprint 1.5.1 v
-# Change github.tarball_from to 'releases' or 'archive' next update
-github.tarball_from tarball
+github.setup        acoustid chromaprint 1.6.0 v
+github.tarball_from archive
 revision            0
 categories          audio
 description         Chromaprint is an audio fingerprint library
@@ -22,9 +21,9 @@ maintainers         {khindenburg @kurthindenburg} openmaintainer
 homepage            https://acoustid.org/chromaprint
 license             LGPL-2.1+
 
-checksums           rmd160  a06b1429daab2171bbf57d59a88db4db62b6fb49 \
-                    sha256  1f0d17b28390ddd796e8fef49d20d7da67aa4366cd79dc140594c3359f4310e5 \
-                    size    1581420
+checksums           rmd160  420e21f6ab10ba3e06536cb3bef60948dbb12f1f \
+                    sha256  65bfce4a35b2e673dbcda917b6aa577e2f145cf805243d19e6a50fea2a520c2a \
+                    size    1580199
 
 compiler.cxx_standard 2011
 
@@ -34,11 +33,13 @@ depends_lib-append  path:lib/libavcodec.dylib:ffmpeg \
 
 cmake.out_of_source yes
 
-configure.args-append -DCMAKE_BUILD_TYPE=Release -DBUILD_TOOLS=ON
+configure.args-append   -DBUILD_TESTS=OFF -DBUILD_TOOLS=ON
 
 variant tests description {Enable tests} {
+    configure.args-replace \
+                            -DBUILD_TESTS=OFF \
+                            -DBUILD_TESTS=ON
     configure.args-append \
-                            -DBUILD_TESTS=ON \
                             -DGTEST_ROOT=${prefix}/src/googletest
 
     depends_build-append    port:gtest
