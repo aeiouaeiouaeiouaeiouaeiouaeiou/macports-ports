@@ -10,7 +10,6 @@ maintainers         nomaintainer
 license             GPL-2+
 universal_variant   no
 
-
 set aud_app_path    ${applications_dir}/Audacity.app
 
 variant wxsystem description {Depend on wxWidgets from MacPorts} {}
@@ -377,7 +376,6 @@ pre-build {
 }
 
 platform darwin {
-
     post-destroot {
         file rename ${destroot}${prefix}/Audacity.app ${destroot}${aud_app_path}
         file delete -force ${destroot}${prefix}/share/audacity/plug-ins
