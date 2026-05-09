@@ -2,23 +2,21 @@
 
 PortSystem              1.0
 PortGroup               waf 1.0
-
-# strnlen
 PortGroup               legacysupport 1.0
 
+# strnlen
 legacysupport.newest_darwin_requires_legacy 10
 
 name                    aubio
 version                 0.4.9
-revision                0
+revision                1
 checksums               rmd160  6595c969e1c7ea84b667b35ea10dc0d8f3a6fc5b \
                         sha256  d48282ae4dab83b3dc94c16cf011bcb63835c1c02b515490e1883049c3d1f3da \
                         size    397604
 
-license                 GPL-2
+license                 GPL-3+
 categories              audio
 maintainers             nomaintainer
-platforms               darwin
 
 description             audio labeling library
 long_description        ${name} is a library for audio labeling. \
@@ -32,20 +30,23 @@ use_bzip2               yes
 
 waf.python_branch       3.10
 
-depends_build-append    port:pkgconfig \
+set ffmpeg_ver          4
+
+depends_build-append    path:bin/pkg-config:pkgconfig \
                         port:txt2man
 
 depends_skip_archcheck  txt2man
 
-depends_lib-append      path:lib/libavcodec.dylib:ffmpeg \
+depends_lib-append      port:ffmpeg${ffmpeg_ver} \
                         port:fftw-3-single \
                         port:libsamplerate \
                         port:libsndfile
 
 patchfiles              patch-wscript.diff
 
-configure.ldflags-delete \
-                        -L${prefix}/lib
+configure.env-append    PKG_CONFIG_SYSTEM_LIBRARY_PATH=${prefix}/lib
+configure.pkg_config_path-append \
+                        ${prefix}/libexec/ffmpeg${ffmpeg_ver}/lib/pkgconfig
 
 configure.args-append   --enable-fftw3f \
                         --disable-jack
