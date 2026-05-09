@@ -10,8 +10,7 @@ revision            0
 
 name                dvbcut
 categories          multimedia
-platforms           darwin
-license             GPL-2
+license             GPL-2+
 maintainers         nomaintainer
 description         Qt application for cutting parts out of DVB streams
 long_description    DVBcut is a Qt application that allows you to select certain parts of an \
