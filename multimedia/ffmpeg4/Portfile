@@ -98,7 +98,6 @@ depends_lib-append \
                     port:libtheora \
                     port:libvorbis \
                     path:lib/pkgconfig/vpx.pc:libvpx \
-                    port:lzo2 \
                     port:openjpeg \
                     port:libpng \
                     port:soxr \
