@@ -17,7 +17,7 @@ subport ${name} {
 
     github.setup        audacity audacity ${version} Audacity-
     revision            0
-    conflicts           audacity-legacy
+    conflicts           audacity2
     description         multi-track audio editor
 
     long_description    Audacity is an easy-to-use, multi-track audio editor and \
