@@ -36,6 +36,8 @@ platform darwin {
 configure.cflags-prepend    -I${prefix}/libexec/ffmpeg${ffmpeg_ver}/include
 configure.ldflags-prepend   -L${prefix}/libexec/ffmpeg${ffmpeg_ver}/lib
 
+build.env           CFLAGS=${configure.cflags}
+
 # Not autoconf
 universal_variant   no
 use_parallel_build  no
