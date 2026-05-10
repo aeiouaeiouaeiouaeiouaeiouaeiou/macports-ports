@@ -55,6 +55,9 @@ patchfiles-append       patch-no-external.diff \
                         patch-encoding.diff \
                         patch-unbreak-netgen-targets.diff
 
+depends_build-append    path:bin/pkg-config:pkgconfig \
+                        path:lib/libavcodec.dylib:ffmpeg
+
 depends_lib-append      port:zlib \
                         port:tcl \
                         port:tkdnd \
