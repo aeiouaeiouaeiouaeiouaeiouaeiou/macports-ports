@@ -3,7 +3,7 @@
 PortSystem          1.0
 PortGroup           golang 1.0
 
-go.setup            github.com/dundee/gdu 5.35.0 v
+go.setup            github.com/dundee/gdu 5.36.1 v
 go.offline_build    no
 go.package          github.com/dundee/gdu/v5
 revision            0
@@ -21,9 +21,9 @@ license             MIT
 maintainers         {gmail.com:herby.gillot @herbygillot} \
                     openmaintainer
 
-checksums           rmd160  8e18b2e512cd034bfd1989823b2d09005abb1354 \
-                    sha256  2c0e4fe412a828e1c0f414f7c230b994e44356c4753c3546c67e8178db500535 \
-                    size    329050
+checksums           rmd160  b687f6a1e821d5b9397b4654d4a1916e42b29e7d \
+                    sha256  dd31ea9afd848edf734143aabd5fdf66236ce2c866dc09f9dededb61d39fe63c \
+                    size    340256
 
 build.cmd           make
 build.args-append   VERSION=${version} \
