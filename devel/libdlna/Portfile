@@ -4,10 +4,9 @@ PortSystem          1.0
 
 name                libdlna
 version             0.2.4
-revision            2
+revision            3
 license             LGPL-2.1
 categories          devel
-platforms           darwin
 maintainers         nomaintainer
 description         An implementation of DLNA standards
 long_description    libdlna aims at being the reference open-source implementation of DLNA \
@@ -15,7 +14,9 @@ long_description    libdlna aims at being the reference open-source implementati
                     provide DLNA support to uShare, an embedded DLNA & UPnP A/V Media Server, \
                     but it will be used to build both DLNA servers and players in the long term.
 
-depends_lib         path:lib/libavcodec.dylib:ffmpeg
+set ffmpeg_ver      4
+
+depends_lib         port:ffmpeg${ffmpeg_ver}
 homepage            http://libdlna.geexbox.org/
 master_sites        ${homepage}releases
 use_bzip2           yes
@@ -31,7 +32,9 @@ platform darwin {
     patchfiles-append   patch-Makefile.diff
 }
 
-configure.cflags-append -I${prefix}/include
+# cppflags are ignored
+configure.cflags-prepend    -I${prefix}/libexec/ffmpeg${ffmpeg_ver}/include
+configure.ldflags-prepend   -L${prefix}/libexec/ffmpeg${ffmpeg_ver}/lib
 
 # Not autoconf
 universal_variant   no
