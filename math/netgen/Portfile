@@ -53,6 +53,11 @@ patchfiles-append       patch-no-external.diff \
                         patch-propagate_c_compiler.diff \
                         patch-encoding.diff
 
+post-patch {
+    reinplace {s|#include "Togl2.1/togl.h"|#include <togl.h>|g} \
+        ${worksrcpath}/ng/ngpkg.cpp
+}
+
 depends_build-append    path:bin/pkg-config:pkgconfig \
                         path:lib/libavcodec.dylib:ffmpeg
 
