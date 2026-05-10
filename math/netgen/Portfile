@@ -8,7 +8,7 @@ PortGroup               github    1.0
 PortGroup               legacysupport 1.1
 
 github.setup            NGSolve netgen 6.2.2604 v
-revision                0
+revision                1
 categories              math
 license                 LGPL-2
 maintainers             {mcalhoun @MarcusCalhoun-Lopez} openmaintainer
@@ -61,6 +61,9 @@ depends_lib-append      port:zlib \
                         port:Togl \
                         path:include/turbojpeg.h:libjpeg-turbo
 
+# For dlopen
+cmake.install_rpath     ${prefix}/lib
+
 # Use OpenGL framework instead of mesa
 configure.pre_args-delete   -DCMAKE_FIND_FRAMEWORK=LAST
 
@@ -107,6 +110,10 @@ foreach pdv ${pythonversions} {
         configure.args-replace  -DUSE_PYTHON=OFF \
                                 -DUSE_PYTHON=ON
 
+        set py_dir              ${frameworks_dir}/Python.framework/Versions/${pdv}/lib/python${pdv}/site-packages
+
+        configure.args-append   -DNG_INSTALL_DIR_PYTHON=${py_dir}
+
         # Choosing Python version does not work.
         # https://gitlab.kitware.com/cmake/cmake/-/issues/23139
         # https://github.com/NGSolve/netgen/issues/174
@@ -118,15 +125,6 @@ foreach pdv ${pythonversions} {
         configure.args-append   -DPYBIND_INCLUDE_DIR=${prefix}/include \
                                 -DPYTHON3_EXECUTABLE=${frameworks_dir}/Python.framework/Versions/${pdv}/bin/python${pdv}
 
-        destroot.args-append    DYLD_LIBRARY_PATH=${destroot}${prefix}/lib \
-                                PYTHONPATH=${destroot}${prefix}/lib/python${pdv}/site-packages
-
-        post-destroot {
-            xinstall    -d -m 0755 \
-                        ${destroot}${frameworks_dir}/Python.framework/Versions/${pdv}/lib
-            move        ${destroot}${prefix}/lib/python${pdv} \
-                        ${destroot}${frameworks_dir}/Python.framework/Versions/${pdv}/lib
-        }
         break
     }
 }
