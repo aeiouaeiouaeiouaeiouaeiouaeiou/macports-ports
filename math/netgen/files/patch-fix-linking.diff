@@ -5,7 +5,7 @@
      visualpkg.cpp
  )
 -target_link_libraries( nggui PUBLIC "$<BUILD_INTERFACE:netgen_python>" ${OPENGL_LIBRARIES} nglib)
-+target_link_libraries( nggui PUBLIC "$<BUILD_INTERFACE:netgen_python>" ${FFMPEG_LIBRARIES} ${JPEG_LIBRARIES} ${OPENGL_LIBRARIES} ${TCL_LIBRARY} ${TK_LIBRARY} nglib)
++target_link_libraries( nggui PUBLIC "$<BUILD_INTERFACE:netgen_python>" ${FFMPEG_LIBRARIES} ${JPEG_LIBRARIES} ${OPENGL_LIBRARIES} nglib)
  
  install(FILES
    meshdoc.hpp mvdraw.hpp visual_api.hpp
