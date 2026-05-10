@@ -7,8 +7,8 @@ PortGroup               compilers 1.0
 PortGroup               github    1.0
 PortGroup               legacysupport 1.1
 
-github.setup            NGSolve netgen 6.2.2307 v
-revision                1
+github.setup            NGSolve netgen 6.2.2604 v
+revision                0
 categories              math
 license                 LGPL-2
 maintainers             {mcalhoun @MarcusCalhoun-Lopez} openmaintainer
@@ -21,9 +21,9 @@ long_description        ${description}. It accepts input from constructive \
                         refinement.
 homepage                https://ngsolve.org/
 
-checksums               rmd160  1a37d234b5081600b572f1e0a86c97c0e233ebf6 \
-                        sha256  e62a9cca2e727797dddadf04de308594f46863f2cac47adb5f51bd8b8c7884aa \
-                        size    3427060
+checksums               rmd160  32e7ca16a48ef3d8f0852c90e333a09102b1cf20 \
+                        sha256  0a614193ee6106c0c276a1516639bef872f2f2371dec159e1b1f6ffcb425954c \
+                        size    3308713
 github.tarball_from     archive
 
 compiler.cxx_standard   2017
@@ -47,13 +47,11 @@ patchfiles-append       patch-no-external.diff \
                         patch-no-pybind.diff \
                         patch-CMakeLists.txt.diff \
                         patch-no-console.diff \
-                        patch-link-against-ffmpeg.diff \
                         patch-cmake-version.diff \
                         patch-MacPorts-rpath.diff \
                         patch-MacPorts-togl.diff \
                         patch-ensure_gui_defines.diff \
                         patch-propagate_c_compiler.diff \
-                        patch-utils.hpp.diff \
                         patch-encoding.diff \
                         patch-unbreak-netgen-targets.diff
 
@@ -61,11 +59,14 @@ depends_lib-append      port:zlib \
                         port:tcl \
                         port:tkdnd \
                         port:Togl \
-                        path:lib/libavcodec.dylib:ffmpeg \
                         path:include/turbojpeg.h:libjpeg-turbo
+
+# Use OpenGL framework instead of mesa
+configure.pre_args-delete   -DCMAKE_FIND_FRAMEWORK=LAST
 
 configure.args-append   -DUSE_NATIVE_ARCH=OFF \
                         -DUSE_PYTHON=OFF \
+                        -DBUILD_STUB_FILES=OFF \
                         -DPREFER_SYSTEM_PYBIND11=ON \
                         -DTCL_INCLUDE_PATH:PATH=${prefix}/include \
                         -DOPENGL_glu_LIBRARY="" \
@@ -75,7 +76,7 @@ configure.args-append   -DUSE_NATIVE_ARCH=OFF \
                         -DUSE_OCC=OFF \
                         -DUSE_SUPERBUILD=OFF
 
-set pythonversions      {3.10 3.11}
+set pythonversions      {3.10 3.11 3.12 3.13 3.14}
 set any_python          no
 foreach pdv ${pythonversions} {
     set pv [join [lrange [split ${pdv} .] 0 1] ""]
@@ -92,7 +93,7 @@ foreach pdv ${pythonversions} {
     }
 }
 if {!${any_python}} {
-    default_variants    +python311
+    default_variants    +python314
 }
 foreach pdv ${pythonversions} {
     set pv [join [lrange [split ${pdv} .] 0 1] ""]
