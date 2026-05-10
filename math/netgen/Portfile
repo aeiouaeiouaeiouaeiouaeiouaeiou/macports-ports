@@ -58,13 +58,13 @@ post-patch {
         ${worksrcpath}/ng/ngpkg.cpp
 }
 
-depends_build-append    path:bin/pkg-config:pkgconfig \
-                        path:lib/libavcodec.dylib:ffmpeg
+depends_build-append    path:bin/pkg-config:pkgconfig
 
 depends_lib-append      port:zlib \
                         port:tcl \
                         port:tkdnd \
                         port:Togl \
+                        path:lib/libavcodec.dylib:ffmpeg \
                         path:include/turbojpeg.h:libjpeg-turbo
 
 # Use OpenGL framework instead of mesa
