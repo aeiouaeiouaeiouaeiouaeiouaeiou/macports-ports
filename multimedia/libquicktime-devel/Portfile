@@ -66,8 +66,6 @@ depends_build-append \
 
 compiler.limit_flags    yes
 
-configure.env       PKG_CONFIG_SYSTEM_LIBRARY_PATH=${prefix}/lib
-
 configure.pkg_config_path \
                     ${prefix}/libexec/ffmpeg${ffmpeg_ver}/lib/pkgconfig
 
