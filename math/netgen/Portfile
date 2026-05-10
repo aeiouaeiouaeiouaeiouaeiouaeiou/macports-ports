@@ -46,6 +46,7 @@ legacysupport.redirect_bins netgen
 patchfiles-append       patch-no-external.diff \
                         patch-no-pybind.diff \
                         patch-CMakeLists.txt.diff \
+                        patch-fix-defs.diff \
                         patch-fix-linking.diff \
                         patch-no-console.diff \
                         patch-cmake-version.diff \
@@ -69,9 +70,6 @@ depends_lib-append      port:zlib \
 
 # Use OpenGL framework instead of mesa
 configure.pre_args-delete   -DCMAKE_FIND_FRAMEWORK=LAST
-
-# Missing from libsrc/visualization/CMakeLists.txt
-configure.cppflags-append   -DOPENGL
 
 configure.args-append   -DUSE_NATIVE_ARCH=OFF \
                         -DUSE_PYTHON=OFF \
