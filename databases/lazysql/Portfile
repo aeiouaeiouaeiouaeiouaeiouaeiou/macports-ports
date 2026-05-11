@@ -3,7 +3,7 @@
 PortSystem          1.0
 PortGroup           golang 1.0
 
-go.setup            github.com/jorgerojas26/lazysql 0.4.9 v
+go.setup            github.com/jorgerojas26/lazysql 0.5.0 v
 categories          databases devel
 maintainers         {amake @amake} openmaintainer
 license             MIT
@@ -13,9 +13,9 @@ description         A cross-platform TUI database management tool written in Go.
 long_description    {*}${description}
 
 checksums           ${distname}${extract.suffix} \
-                        rmd160  9110288dd76122aba0e9f91c428f7a1e3ba1e263 \
-                        sha256  92a36347c064e2440f4f4bf38d3555ed282bb5ca7f0ebe3884d507cbcabaca9b \
-                        size    1033744
+                        rmd160  a0847919ce8bdb57823209bbe8de5650b56cb6bb \
+                        sha256  64234607848634342e1b98788f331f5908cfb27b93acaa5341d88e0a465cf464 \
+                        size    1034691
 
 build.pre_args-append \
     -ldflags \" -X main.version=${version} \"
