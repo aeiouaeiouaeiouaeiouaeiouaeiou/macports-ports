@@ -5,9 +5,9 @@ PortGroup               github 1.0
 PortGroup               cmake 1.1
 PortGroup               legacysupport 1.1
 
-github.setup            ggerganov llama.cpp 9006 b
+github.setup            ggerganov llama.cpp 9102 b
 github.tarball_from     archive
-set git-commit          c5a3bc3
+set git-commit          7d442ab
 # This line is for displaying commit in CLI only
 revision                0
 categories              llm
@@ -19,9 +19,9 @@ long_description        The main goal of ${name} is to enable LLM inference with
                         setup and state-of-the-art performance on a wide variety of hardware\
                          - locally and in the cloud.
 
-checksums               rmd160  404c19996810144a465846a9dd6196d4c4b9c4ed \
-                        sha256  31b23f24119874c9f4993d794072a75aead0172a3a914e699484fb7848631e56 \
-                        size    33992585
+checksums               rmd160  819a3a72b0ef990b44af1cb77781d3611e362c7d \
+                        sha256  82d124ed5868975bb0875d229c97e0fb16f029f5412245a81219c97e4b5852a7 \
+                        size    34056898
 
 # error: 'filesystem' file not found on 10.14
 legacysupport.newest_darwin_requires_legacy \
