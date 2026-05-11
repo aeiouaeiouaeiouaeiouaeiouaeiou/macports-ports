@@ -4,7 +4,7 @@ PortSystem          1.0
 PortGroup           cargo   1.0
 PortGroup           github  1.0
 
-github.setup        rust-analyzer rust-analyzer 2026-04-27
+github.setup        rust-analyzer rust-analyzer 2026-05-11
 github.tarball_from archive
 version             [string map { {-} {} } ${github.version}]
 revision            0
@@ -25,9 +25,9 @@ maintainers         @fabius \
                     openmaintainer
 
 checksums           ${distname}${extract.suffix} \
-                        rmd160  6d3b5989c629a574074312c22a471a37411cbc3f \
-                        sha256  1787d16d7383941bcc40d1cb7bf739d23dc296e2ee15a6aaad70affa32a88222 \
-                        size    3924190
+                        rmd160  0a0cd017128dc971bd8ef073da0a967722611cd9 \
+                        sha256  6bb8fc1156ad7deb98894f456384a809126310a20a2ad693f04f4a894f562c77 \
+                        size    3988574
 
 destroot {
     xinstall -m 0755 \
@@ -109,6 +109,7 @@ cargo.crates \
     flate2                           1.1.2  4a3d7db9596fecd151c5f638c0ee5d5bd487b6e0ea232e5dc96d5250f6f94b1d \
     fnv                              1.0.7  3f9eec918d3f24069decb9af1554cad7c880e2da24a9afd88aca000531ab82c1 \
     foldhash                         0.1.5  d9c4f5dac5e15c24eb999c26181a6ca40b39fe946cbe4c263c7209467bc83af2 \
+    foldhash                         0.2.0  77ce24cb58228fbb8aa041425bb1050850ac19177686ea6e0f41a70416f56fdb \
     form_urlencoded                  1.2.2  cb4cb245038516f5f85277875cdaa4f7d2c9a0fa0468de06ed190163b1581fcf \
     fsevent-sys                      4.1.0  76ee7a02da4d231650c7cea31349b889be2f45ddb3ef3032d2ec8185f6313fd2 \
     fst                              0.4.7  7ab85b9b05e3978cc9a9cf8fea7f01b494e1a09ed3037e16ba39edc7a29eb61a \
@@ -120,6 +121,7 @@ cargo.crates \
     hashbrown                       0.14.5  e5274423e17b7c9fc20b6e7e208532f9b19825d82dfd615708b70edd83df41f1 \
     hashbrown                       0.15.5  9229cfe53dfd69f0609a49f65461bd93001ea1ef889cd5529dd176593f5338a1 \
     hashbrown                       0.16.0  5419bdc4f6a9207fbeba6d11b604d481addf78ecd10c11ad51e76c2f6482748d \
+    hashbrown                       0.17.0  4f467dd6dccf739c208452f8014c75c18bb8301b050ad1cfb27153803edb0f51 \
     hashlink                        0.10.0  7382cf6263419f2d8df38c55d7da83da5c18aef87fc7a7fc1fb1e344edfe14c1 \
     heapless                        0.7.17  cdc6457c0eb62c71aac4bc17216026d8410337c4126773b9c5daba343f17964f \
     hermit-abi                       0.5.2  fc0fef456e4baa96da950455cd02c081ca953b141298e41db3fc7e36b1da849c \
@@ -137,7 +139,7 @@ cargo.crates \
     inotify                         0.11.0  f37dccff2791ab604f9babef0ba14fbe0be30bd368dc541e2b08d07c8aa908f3 \
     inotify-sys                      0.1.5  e05c02b5e89bff3b946cedeca278abc628fe811e604f027c45a8aa3cf793d0eb \
     intrusive-collections            0.9.7  189d0897e4cbe8c75efedf3502c18c887b05046e59d28404d4d8e46cbc4d1e86 \
-    inventory                       0.3.21  bc61209c082fbeb19919bee74b176221b27223e27b65d781eb91af24eb1fb46e \
+    inventory                       0.3.24  a4f0c30c76f2f4ccee3fe55a2435f691ca00c0e4bd87abe4f4a851b1d4dac39b \
     itertools                       0.13.0  413ee7dfc52ee1a4949ceeb7dbc8a33f2d6c088194d9f922fb8318faf1f01186 \
     itertools                       0.14.0  2b192c782037fadd9cfa75548310488aabdbf3d2da73885b31bd0abd03351285 \
     itoa                            1.0.15  4a5f13b858c8d314ee3e8f639011f7ccefe71f97f96e50151fb991f267928e2c \
@@ -205,17 +207,17 @@ cargo.crates \
     quick-error                      1.2.3  a1d01941d82fa2ab50be1e79e6714289dd7cde78eba4c074bc5a4374f650dfe0 \
     quote                           1.0.40  1885c039570dc00dcb4ff087a89e185fd56bae234ddc7f056a945bf36467248d \
     r-efi                            5.3.0  69cdb34c158ceb288df11e18b4bd39de994f6657d83847bdffdbd7f346754b0f \
-    ra-ap-rustc_abi                0.160.0  4b917ab47d7036977be4c984321af3e0de089229404d68ea9a286f50aa464697 \
-    ra-ap-rustc_ast_ir             0.160.0  021d80bea67458b8c90cc25bfdca6f911ea818a41905e370c1f310cced1dd07e \
-    ra-ap-rustc_hashes             0.160.0  8bb89395306ecfc980d252f77a4038d8b8bb578a25c856b545cbeeb3fde8358e \
-    ra-ap-rustc_index              0.160.0  84219d028a1954c4340ddde11adffe93eb83e476e942718fe926f4d99637cbbe \
-    ra-ap-rustc_index_macros       0.160.0  3908fdfa258c663d8ee407e6b4a205b0880e323b533c0df7edceafbd54a02fb6 \
-    ra-ap-rustc_lexer              0.160.0  34b50f19d5856b8e2b36150e89b53a6102ab096e8044e1f55fd6fef977b10d85 \
-    ra-ap-rustc_next_trait_solver  0.160.0  76f83dcc451bcee8a99e284a583d5b3d82db5a200107a256a40ef132c4988f1b \
-    ra-ap-rustc_parse_format       0.160.0  f31236bdc6cbcae8af42d0b2db2fa8d812a8715b90a2ba5afb1132b37a4d0bbc \
-    ra-ap-rustc_pattern_analysis   0.160.0  3fc4edac740e896fba4b3b4d9c423083e3eac49947732561ddfb2377e1f57829 \
-    ra-ap-rustc_type_ir            0.160.0  8efa119afc1bcadd821b27aa94332abf79c48ac0a972cb78932f63004ba4cdd9 \
-    ra-ap-rustc_type_ir_macros     0.160.0  e6b1dc03abfabc7179393c282892c73a3f0e4bbd5f0b6c87ff42c2b142e68f57 \
+    ra-ap-rustc_abi                0.165.0  2f25a779e21ca3bba6795193b16508c8ab159f96ee4b07349893fd272065b525 \
+    ra-ap-rustc_ast_ir             0.165.0  0218ca6c7b096466e85a497e6150c39be5b7bc36637fe62c1cd20370a9d9aac7 \
+    ra-ap-rustc_hashes             0.165.0  d6b410bacf1a7c8038f376fa6283003784d568ac012e35fc0aeefa9a5ab11a2e \
+    ra-ap-rustc_index              0.165.0  2271b55e4a5d0cc0cbe9bdf8056c07ac69e32919a48ce66722ed0526d62588c3 \
+    ra-ap-rustc_index_macros       0.165.0  b6a89e743fb881a1e13544e3395a5ad9ad9280d56384256a121066119abd7af2 \
+    ra-ap-rustc_lexer              0.165.0  a6d7c9cc05e0e6b72a214a455a106d9b22b0494164d50a657b17bd319534c218 \
+    ra-ap-rustc_next_trait_solver  0.165.0  cb3017c2f0ace80b8e6068b9c613aa56ed50e0374bf44a891447511f1264e40d \
+    ra-ap-rustc_parse_format       0.165.0  4a737f844bdef8ac5ab54dadf2f34704b4d06beef9236d71080bb34db697220b \
+    ra-ap-rustc_pattern_analysis   0.165.0  6de3d4c7d6078cce3c40c55717b8b15002a80b9fa8849faea496a365324861b4 \
+    ra-ap-rustc_type_ir            0.165.0  8c5d9a4d3e7bee7313599bc6d794037247ac0165f03857379cf4fc3097199e05 \
+    ra-ap-rustc_type_ir_macros     0.165.0  024598d1f54272acd83d28c121f8a2e82e216dd7be1e40158b66b2d12fa214c0 \
     rand                             0.9.3  7ec095654a25171c2124e9e3393a930bddbffdc939556c914957a4c3e0a87166 \
     rand_chacha                      0.9.0  d3022b5f1df60f26e1ffddd6c66e8aa15de382ae63b3a0c1bfc0e4d3e3f325cb \
     rand_core                        0.9.3  99d9a13982dcf210057a8a78572b2217b667c3beacbf3a0d8b454f6f82837d38 \
@@ -240,9 +242,9 @@ cargo.crates \
     rustversion                     1.0.22  b39cdef0fa800fc44525c84ccb54a029961a8215f9619753635a9c0d2538d46d \
     rusty-fork                       0.3.1  cc6bf79ff24e648f6da1f8d1f011e9cac26491b619e6b9280f2b47f1774e6ee2 \
     ryu                             1.0.20  28d3b2b1366ec20994f1fd18c3c594f05c5dd4bc44d8bb0c1c632c8d6829481f \
-    salsa                           0.26.0  f77debccd43ba198e9cee23efd7f10330ff445e46a98a2b107fed9094a1ee676 \
-    salsa-macro-rules               0.26.0  ea07adbf42d91cc076b7daf3b38bc8168c19eb362c665964118a89bc55ef19a5 \
-    salsa-macros                    0.26.0  d16d4d8b66451b9c75ddf740b7fc8399bc7b8ba33e854a5d7526d18708f67b05 \
+    salsa                           0.26.2  4612ff789805e65c87e9b38cb749a293212a615af065bed8a2001086801498c3 \
+    salsa-macro-rules               0.26.2  58e354cbac6939b9b09cd9c11fb419a53e64b4a0f755d929f56a09f4cc752e41 \
+    salsa-macros                    0.26.2  3067861075c2b80608f84ad49fb88f2c7610b94cdf8b4201e79ddee87f8980c8 \
     same-file                        1.0.6  93fc1dc3aaa9bfed95e02e6eadabb4baf7e3078b0bd1b4d7b6b0b68378900502 \
     scip                             0.7.1  f4d0e81b39f590b2edbe2369760641511898ed34062aed2e18e6d05eead3d6b7 \
     scopeguard                       1.2.0  94143f37725109f92c262ed2cf5e59bce7498c01bcc1502d7b9afe439a4e9f49 \
@@ -294,6 +296,7 @@ cargo.crates \
     tracing-tree                     0.4.0  f459ca79f1b0d5f71c54ddfde6debfc59c8b6eeb46808ae492077f739dc7b49c \
     triomphe                        0.1.14  ef8f7726da4807b58ea5c96fdc122f80702030edc33b35aff9190a51148ccc85 \
     typed-arena                      2.0.2  6af6ae20167a9ece4bcb41af5b80f8a1f1df981f6391189ce00fd257af04126a \
+    typeid                           1.0.3  bc7d623258602320d5c55d1bc22793b57daff0ec7efc270ea7d55ce1d5f5471c \
     unarray                          0.1.4  eaea85b334db583fe3274d12b4cd1880032beab409c0d774be044d4480ab9a94 \
     ungrammar                       1.16.1  a3e5df347f0bf3ec1d670aad6ca5c6a1859cd9ea61d2113125794654ccced68f \
     unicase                          2.8.1  75b844d17643ee918803943289730bec8aac480150456169e647ed0b576ba539 \
