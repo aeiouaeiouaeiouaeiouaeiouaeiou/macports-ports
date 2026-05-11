@@ -9,7 +9,6 @@ legacysupport.use_mp_libcxx yes
 
 name                libopenmpt
 version             0.8.6
-revision            0
 categories          audio devel multimedia
 license             BSD
 maintainers         nomaintainer
@@ -36,6 +35,13 @@ depends_lib-append  port:flac \
                     port:zlib
 
 compiler.cxx_standard 2017
+
+# clang-17+ passes autoconf's C++23 check but macports-libcxx lacks
+# C++23 library features, causing build failures on older systems.
+# Remove when macports-libcxx supports C++23.
+if {${os.platform} eq "darwin" && ${os.major} <= 18} {
+    compiler.blacklist-append {macports-clang-1[7-9]} {macports-clang-[2-9][0-9]}
+}
 
 configure.args-append \
                     --disable-dependency-tracking \
