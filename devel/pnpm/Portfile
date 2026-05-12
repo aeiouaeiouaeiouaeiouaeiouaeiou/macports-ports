@@ -4,7 +4,7 @@ PortSystem          1.0
 PortGroup           npm 1.0
 
 name                pnpm
-version             11.0.6
+version             11.1.1
 revision            0
 
 categories          devel
@@ -18,6 +18,6 @@ long_description    pnpm is a fast, disk space efficient package manager, \
 
 homepage            https://pnpm.io
 
-checksums           rmd160  e86d37e44ace0599e162e330abc73454409d70c4 \
-                    sha256  5cc39c9c736000c7a73d2807669a2c74fb94b37d125b9f794d898d28877053ca \
-                    size    4466861
+checksums           rmd160  48d22d2c3ba722e6a507541b26cf9edd6322fa0d \
+                    sha256  05b282d06332295c736f0b20c8bdf185325bf1bca682c91ed81154a3c6851cc0 \
+                    size    4223291
