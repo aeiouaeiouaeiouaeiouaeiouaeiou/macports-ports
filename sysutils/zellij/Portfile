@@ -4,7 +4,7 @@ PortSystem          1.0
 PortGroup           cargo   1.0
 PortGroup           github  1.0
 
-github.setup        zellij-org zellij 0.44.2 v
+github.setup        zellij-org zellij 0.44.3 v
 github.tarball_from archive
 revision            0
 
@@ -27,9 +27,9 @@ maintainers         {gmail.com:herby.gillot @herbygillot} \
                     openmaintainer
 
 checksums           ${distname}${extract.suffix} \
-                    rmd160  58aa44971c8f4a13c253ef8badabc7e175371901 \
-                    sha256  8a4c1558135e4dc7375fce8db3524c60289fa5eb5877068fcdeed9650140964d \
-                    size    13321125
+                    rmd160  aa13902635c630de97a6c080005504d570f25bfe \
+                    sha256  33ae61fc802b59462fed49b424893596d3aa819646bdce53d5602f714c1264fe \
+                    size    13340102
 
 depends_build-append \
                     port:go-md2man
