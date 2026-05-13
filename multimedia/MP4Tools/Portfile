@@ -39,3 +39,5 @@ depends_lib         path:lib/libavcodec.dylib:ffmpeg \
 depends_run         port:gpac
 
 configure.args      --with-wxdir=${wxWidgets.wxdir}
+
+livecheck.distname  ${name}
