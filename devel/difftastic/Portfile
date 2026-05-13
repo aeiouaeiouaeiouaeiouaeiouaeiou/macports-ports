@@ -4,7 +4,7 @@ PortSystem          1.0
 PortGroup           cargo   1.0
 PortGroup           github  1.0
 
-github.setup        Wilfred difftastic 0.68.0
+github.setup        Wilfred difftastic 0.69.0
 github.tarball_from archive
 revision            0
 
@@ -20,9 +20,9 @@ maintainers         {gmail.com:herby.gillot @herbygillot} \
                     openmaintainer
 
 checksums           ${distname}${extract.suffix} \
-                    rmd160  dd680f07b244628a19d6fe486fea6c2121572c1c \
-                    sha256  86cfd4232f99c5dac56bd1e6fab7b8d96cfaac7a4271738b50c8189031c97a66 \
-                    size    17051970
+                    rmd160  a04618f63cfbe778b696cc8057c53e7d52d10b6b \
+                    sha256  49d722fb80a0324ea99fe11907f796cde635443084d15cc6f1afd9e0de54bde0 \
+                    size    15503793
 
 destroot {
     set bin_name    difft
@@ -141,21 +141,23 @@ cargo.crates \
     tikv-jemallocator                0.6.0  4cec5ff18518d81584f477e9bfdf957f5bb0979b0bac3af4ca30b5b3ae2d2865 \
     tree-sitter                     0.26.3  974d205cc395652cfa8b37daa053fe56eebd429acf8dc055503fee648dae981e \
     tree-sitter-ada                  0.1.0  8d9fcdd64359c98fcc99d72f6d3d6ca5d6d76ce325ac39430b1d283a0fb61ca1 \
+    tree-sitter-asm                 0.24.0  743a0377253cd5505841e61ba1093a04b3a949b2b751752ff956040dda14f1bc \
     tree-sitter-bash                0.25.1  9e5ec769279cc91b561d3df0d8a5deb26b0ad40d183127f409494d6d8fc53062 \
     tree-sitter-c                   0.24.1  1a3aad8f0129083a59fe8596157552d2bb7148c492d44c21558d68ca1c722707 \
     tree-sitter-c-sharp             0.23.1  67f06accca7b45351758663b8215089e643d53bd9a660ce0349314263737fcb0 \
-    tree-sitter-clojure-orchard      0.2.0  62ff7bdebec1f2578787697e32b5539842b8ea9e35df784b537c22cf1ed1aa8f \
+    tree-sitter-clojure-orchard      0.2.5  c3e2db28a1ab22649790656936325bdc69e992c38006258694ea39a7620e784d \
     tree-sitter-cmake                0.7.1  7c1b35d1dd7396d24b3e826bb0f975b915ec7e9125b989d5e9d24ebb6a08509a \
+    tree-sitter-commonlisp           0.4.1  36c662ae95eee8c5ada519d4fe87261c5fbcc3ffaac4b10c03d460154cd6a9b2 \
     tree-sitter-cpp                 0.23.4  df2196ea9d47b4ab4a31b9297eaa5a5d19a0b121dceb9f118f6790ad0ab94743 \
-    tree-sitter-css                 0.23.1  25435a275adb3226b6fddab891bbc50d1a500774a44ceb97022a39666ccda75d \
-    tree-sitter-dart-orchard         0.2.1  206d0062b36beab07b152aa9c02f5b4944453cd942ba01471df951b40292e9ad \
+    tree-sitter-css                 0.25.0  a5cbc5e18f29a2c6d6435891f42569525cf95435a3e01c2f1947abcde178686f \
+    tree-sitter-dart-orchard         0.3.2  3fcc68a1fd54afbeabc13b64a07b1ef611805690800fa2a57c1d1b90970a902e \
     tree-sitter-devicetree          0.14.1  b1e6874b59d8252cbaf9750f7152166e17ed162921a5f6d4e8bd2a2bc2aed46b \
     tree-sitter-elisp                1.6.1  5e2e9a6ab3cebf24ca41cdc1f985549b9b33f7ef25c19ac7d18e53a4ee24da09 \
     tree-sitter-elixir               0.3.4  e45d444647b4fd53d8fd32474c1b8bedc1baa22669ce3a78d083e365fa9a2d3f \
     tree-sitter-elm                  5.8.0  accee95d95c001e53f5ab1a1168f1ed1c6ec763a17fb48b43acf5bf4ff9e3423 \
-    tree-sitter-erlang              0.13.0  eb9265a444b04975b2ecc2e1a64114a03e009737e7fae19ce9078b962b8be1af \
+    tree-sitter-erlang              0.16.0  ceb442e728225d601db0661f60d64e166bd9b9a55c587f71d4e4f27378717cce \
     tree-sitter-fortran              0.5.1  ce58ab374a2cc3a2ff8a5dab2e5230530dbfcb439475afa75233f59d1d115b40 \
-    tree-sitter-fsharp               0.1.0  f2db500a0948bf37c43febe2c3d67bfb9ad690b06aaa20780a5106da6f620b41 \
+    tree-sitter-fsharp               0.3.0  054fba748f8bf3604fc14191b4e7da66d1b887de0e285e32cf6dbd2a3db3fc42 \
     tree-sitter-gleam                1.0.0  f0175c53793bda5d444360dd5add25463d18d66afb7f521d6791e2fc61bf2fb3 \
     tree-sitter-go                  0.25.0  c8560a4d2f835cc0d4d2c2e03cbd0dde2f6114b43bc491164238d333e28b16ea \
     tree-sitter-haskell             0.23.1  977c51e504548cba13fc27cb5a2edab2124cf6716a1934915d07ab99523b05a4 \
@@ -171,18 +173,17 @@ cargo.crates \
     tree-sitter-newick               1.1.0  08c5785bcf2ade84e16242b1a8d1f574334ddd26032c15a5d9bcc012e013f4e1 \
     tree-sitter-nix                  0.3.0  4952a9733f3a98f6683a0ccd1035d84ab7a52f7e84eeed58548d86765ad92de3 \
     tree-sitter-objc                 3.0.2  9ca8bb556423fc176f0535e79d525f783a6684d3c9da81bf9d905303c129e1d2 \
-    tree-sitter-ocaml               0.23.2  93c104a23d175906dd0cf1f872745d2b4ec10f29a75194a3556501b2f66ce377 \
+    tree-sitter-ocaml               0.24.2  7d19db582b3855f56b5f9ec484170fbfb9ee60b938ec7720d76d2ee788e8b640 \
     tree-sitter-pascal              0.10.0  ca037a9d7fd7441903e8946bfd223831b03d6bc979a50c8a5d4b9b6bdce91aaf \
-    tree-sitter-perl                 1.1.2  e79d4ae71b42e595c24c354b59905ade8162bd400ebc53ab916ea8aec54da92d \
     tree-sitter-php                0.23.11  f066e94e9272cfe4f1dcb07a1c50c66097eca648f2d7233d299c8ae9ed8c130c \
     tree-sitter-proto                0.2.0  8e4360b434b5980fc397137ef29e1988619fef4159ac86fa7ac5777d459d3924 \
-    tree-sitter-python              0.23.6  3d065aaa27f3aaceaf60c1f0e0ac09e1cb9eb8ed28e7bcdaa52129cffc7f4b04 \
+    tree-sitter-python              0.25.0  6bf85fd39652e740bf60f46f4cda9492c3a9ad75880575bf14960f775cb74a1c \
     tree-sitter-qmljs                0.3.0  67445ea937cd7eadaf2f628e2e7dd234374586cc31b4d1d63dbb5f5e7f9d9b62 \
     tree-sitter-r                    1.2.0  429133cbda9f8a46e03ef3aae6abb6c3d22875f8585cad472138101bfd517255 \
     tree-sitter-racket              0.24.7  f8395b6a054e6264c67e1ef915f239c4f86575b7d7c69638bdbf3c336c58f128 \
     tree-sitter-ruby                0.23.1  be0484ea4ef6bb9c575b4fdabde7e31340a8d2dbc7d52b321ac83da703249f95 \
-    tree-sitter-rust-orchard        0.16.2  95a5233c54dfe23d774a73b2fbbdb7d7a6802e0d257ba6b238cd493422cd78fc \
-    tree-sitter-scala               0.23.4  efde5e68b4736e9eac17bfa296c6f104a26bffab363b365eb898c40a63c15d2f \
+    tree-sitter-rust-orchard        0.16.6  43acd60db4dfc1ae9ea7aaae4ced7cbd1eb3c9a6593ddbe6c9c0e1e05674e4c2 \
+    tree-sitter-scala               0.26.0  de5a4a7ff23a55474ce6a741d52aaeca7a82fe9421bb982b86e98c6ac8629397 \
     tree-sitter-scheme              0.24.7  8a7e7f156bdf38145f26705d1733185698845307d3e9d9c071ecce4375575131 \
     tree-sitter-sequel              0.3.11  9d198ad3c319c02e43c21efa1ec796b837afcb96ffaef1a40c1978fbdcec7d17 \
     tree-sitter-sfapex               2.4.0  7b97637acb3bcfc2518162ecf9b02a18b28a502cd7631bec5c2a26f4e5ea024b \
@@ -191,10 +192,12 @@ cargo.crates \
     tree-sitter-toml-ng              0.7.0  e9adc2c898ae49730e857d75be403da3f92bb81d8e37a2f918a08dd10de5ebb1 \
     tree-sitter-typescript          0.23.2  6c5f76ed8d947a75cc446d5fccd8b602ebf0cde64ccf2ffa434d873d7a575eff \
     tree-sitter-verilog              1.0.3  d4e7e0360395852f1f6ff5b7b82c72dc6557d181073188df1d60ec469ea69c66 \
+    tree-sitter-vhdl                 1.4.0  0feb025ddf87c45bb98335ef2a2493cac08ec6b74d33201d1bf75df2be08de23 \
     tree-sitter-xml                  0.7.0  e670041f591d994f54d597ddcd8f4ebc930e282c4c76a42268743b71f0c8b6b3 \
     tree-sitter-yaml                 0.7.2  53c223db85f05e34794f065454843b0668ebc15d240ada63e2b5939f43ce7c97 \
     tree-sitter-zig                  1.1.2  ab11fc124851b0db4dd5e55983bbd9631192e93238389dcd44521715e5d53e28 \
     tree_magic_mini                  3.1.6  aac5e8971f245c3389a5a76e648bfc80803ae066a1243a75db0064d7c1129d63 \
+    ts-parser-perl                   1.0.1  414cb3e098cb9be31093f9e2ec3485877444ea70ebd5ac19df46753dbd712cfd \
     typed-arena                      2.0.2  6af6ae20167a9ece4bcb41af5b80f8a1f1df981f6391189ce00fd257af04126a \
     unicode-ident                   1.0.12  3354b9ac3fae1ff6755cb6db53683adb661634f67557942dea4facebec0fee4b \
     unicode-width                   0.1.11  e51733f11c9c4f72aa0c160008246859e340b00807569a0da0e7a1079b27ba85 \
