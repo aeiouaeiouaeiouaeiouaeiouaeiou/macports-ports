@@ -59,6 +59,7 @@ proc kde4::configure_build {} {
         # prepend our own (new) install location for cmake modules:
         set cmake_module_path ${kde4.cmake_module_dir}\;${cmake_share_module_dir}
     }
+    set cmake_module_path   [join [list ${cmake_module_path} {*}[option cmake.module_path]] \;]
     configure.args-delete -DCMAKE_MODULE_PATH=${cmake_share_module_dir}
     configure.args-append -DCMAKE_MODULE_PATH="${cmake_module_path}" \
                           -DCMAKE_PREFIX_PATH="${cmake_module_path}"
