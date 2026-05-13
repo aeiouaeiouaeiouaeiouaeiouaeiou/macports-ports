@@ -4,7 +4,7 @@ PortSystem          1.0
 PortGroup           cargo   1.0
 PortGroup           github  1.0
 
-github.setup        atuinsh atuin 18.16.0 v
+github.setup        atuinsh atuin 18.16.1 v
 github.tarball_from archive
 revision            0
 
@@ -25,9 +25,9 @@ maintainers         {gmail.com:herby.gillot @herbygillot} \
                     openmaintainer
 
 checksums           ${distname}${extract.suffix} \
-                    rmd160  34ae45c71be184a5eb5d5108be0e276d6ee75607 \
-                    sha256  433a6ee912d84b2aa4b59b329775a7ee1a1cdc3094412c2f185ac5ce681a64f0 \
-                    size    2983921
+                    rmd160  967ff50369ecb2b5be76de9888cbd5a86170b299 \
+                    sha256  752802d4e8eef4896e9bc779b82f85e3d433c5934df5169e9b0f2537acf7f6e9 \
+                    size    2990587
 
 set atuin_bin       ${worksrcpath}/target/[cargo.rust_platform]/release/${name}
 
