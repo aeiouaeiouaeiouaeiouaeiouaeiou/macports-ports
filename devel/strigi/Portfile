@@ -6,7 +6,7 @@ PortGroup       kde4 1.1
 
 name            strigi
 version         0.7.8
-revision        17
+revision        18
 categories      devel
 maintainers     nomaintainer
 license         LGPL-2+
@@ -24,12 +24,17 @@ master_sites    ${homepage}
 
 use_bzip2       yes
 
+set ffmpeg_ver  4
+
+depends_build-append \
+                path:bin/pkg-config:pkgconfig
+
 depends_lib-append \
                 port:bzip2 \
                 port:clucene \
                 port:dbus \
-                port:exiv2 \
-                path:lib/libavcodec.dylib:ffmpeg \
+                port:ffmpeg${ffmpeg_ver} \
+                port:libiconv \
                 port:libxml2 \
                 port:zlib
 
@@ -37,6 +42,7 @@ checksums       rmd160  34cbbe98e7a371467b115b18586baf299340d1b8 \
                 sha256  43e461a625acdefa59bf58cc9d10aebda9eba920dfbe800fc77e6dcbf1eff989
 
 patchfiles      patch-ffmpegendanalyzer.diff \
+                patch-libstreamanalyzer-cmake.diff \
                 patch-libstreamanalyzer-lib-rdfnamespaces.h.diff \
                 patch-libstreamanalyzer-plugins-endplugins-ffmpegendanalyzer.cpp.diff \
                 patch-strigidaemon-bin-daemon-xesam-xesamsearch.h.diff \
@@ -44,11 +50,8 @@ patchfiles      patch-ffmpegendanalyzer.diff \
 
 conflicts_build cppunit
 
-configure.args-append \
-                -DICONV_INCLUDE_DIR:PATH=${prefix}/include \
-                -DICONV_LIBRARIES:FILEPATH=${prefix}/lib/libiconv.dylib \
-                -DLIBXML2_LIBRARY=${prefix}/lib/libxml2.dylib \
-                -DLOG4CXX_INCLUDE_DIR=${prefix}/include/log4cxx
+cmake.module_path           ${prefix}/libexec/ffmpeg${ffmpeg_ver}
+configure.pkg_config_path   ${prefix}/libexec/ffmpeg${ffmpeg_ver}/lib/pkgconfig
 
 # Best practice for CMake dictates that builds should be out of source.
 # However, it appears that strigi uses java to create source files and
