@@ -16,7 +16,7 @@ options ffmpeg.prefix
 default ffmpeg.prefix {${prefix}/libexec/ffmpeg${ffmpeg.version}}
 
 proc ffmpeg::set_vars {action} {
-    global ffmpeg._version ffmpeg.prefix prefix
+    global cmake.prefix_path ffmpeg._version ffmpeg.prefix prefix
 
     ffmpeg.prefix               ${prefix}/libexec/ffmpeg${ffmpeg._version}
 
