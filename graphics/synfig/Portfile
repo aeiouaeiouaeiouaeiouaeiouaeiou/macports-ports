@@ -104,7 +104,7 @@ subport ETL {
                         types and functions from the C++ Standard Template \
                         Library (STL).
 
-    depends_lib-append  path:lib/pkgconfig/glibmm-2.68.pc:glibmm
+    depends_lib-append  path:lib/pkgconfig/glibmm-2.4.pc:glibmm-2.4
 
     # ETL-config is a wrapper around pkg-config
     depends_lib-append  path:bin/pkg-config:pkgconfig
