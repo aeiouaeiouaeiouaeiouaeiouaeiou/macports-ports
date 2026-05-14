@@ -34,6 +34,7 @@ proc ffmpeg::set_vars {action} {
 }
 
 proc ffmpeg::configure_build {} {
+    global ffmpeg._version
     ffmpeg::set_vars        delete
     set ffmpeg._version     [option ffmpeg.version]
     ffmpeg::set_vars        prepend
