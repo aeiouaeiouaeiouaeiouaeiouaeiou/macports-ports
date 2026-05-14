@@ -4,6 +4,7 @@ PortSystem              1.0
 PortGroup               boost 1.0
 PortGroup               github 1.0
 PortGroup               qmake 1.0
+PortGroup               ffmpeg 1.0
 
 github.setup            lastfm lastfm-desktop 2.1.39
 revision                1
@@ -19,15 +20,14 @@ checksums               rmd160  e1db8c81a55a6535b76b2876ecc38dccc86423c7 \
                         size    4099355
 github.tarball_from     archive
 
-set ffmpeg_ver          4
+ffmpeg.version          4
 
 boost.depends_type      build
 
 depends_build-append    path:libexec/coreutils/libstdbuf.so:coreutils \
                         port:gettext
 
-depends_lib-append      port:ffmpeg${ffmpeg_ver} \
-                        path:include/turbojpeg.h:libjpeg-turbo \
+depends_lib-append      path:include/turbojpeg.h:libjpeg-turbo \
                         port:tiff \
                         port:liblastfm \
                         port:libmng \
@@ -49,7 +49,7 @@ platform darwin {
 post-patch {
     reinplace "s|@ARCH@|${configure.build_arch}|g" \
         ${worksrcpath}/admin/include.qmake
-    reinplace "s|@FFMPEG@|${prefix}/libexec/ffmpeg${ffmpeg_ver}|g" \
+    reinplace "s|@FFMPEG@|${ffmpeg.prefix}|g" \
         ${worksrcpath}/admin/qmake/3rdparty.pro.inc
     reinplace "s|@PREFIX@|${prefix}|g" \
         ${worksrcpath}/admin/qmake/3rdparty.pro.inc \
@@ -63,9 +63,6 @@ post-patch {
 }
 
 universal_variant       no
-
-configure.cppflags-prepend  -I${prefix}/libexec/ffmpeg${ffmpeg_ver}/include
-configure.ldflags-prepend   -L${prefix}/libexec/ffmpeg${ffmpeg_ver}/lib
 
 destroot {
     system "mv ${worksrcpath}/_bin/Last.fm*Scrobbler.app ${destroot}${applications_dir}/Last.fm.app"
