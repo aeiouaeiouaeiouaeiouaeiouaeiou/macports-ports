@@ -12,16 +12,41 @@ namespace eval ffmpeg { }
 options ffmpeg.version
 default ffmpeg.version 8
 
-proc ffmpeg::configure_build {} {
-    global cmake.prefix_path prefix
-    depends_lib-append          port:ffmpeg[option ffmpeg.version]
-    configure.pkg_config_path-prepend \
-                                ${prefix}/libexec/ffmpeg[option ffmpeg.version]/lib/pkgconfig
-    configure.cppflags-prepend  -I${prefix}/libexec/ffmpeg[option ffmpeg.version]/include
-    configure.ldflags-prepend   -L${prefix}/libexec/ffmpeg[option ffmpeg.version]/lib
+proc ffmpeg::set_vars {action} {
+    global prefix
+
+    set ::ffmpeg::port          port:ffmpeg${ffmpeg::version}
+    set ::ffmpeg::pkgconfig     ${prefix}/libexec/ffmpeg${ffmpeg::version}/lib/pkgconfig
+    set ::ffmpeg::cppflags      -I${prefix}/libexec/ffmpeg${ffmpeg::version}/include
+    set ::ffmpeg::ldflags       -L${prefix}/libexec/ffmpeg${ffmpeg::version}/lib
+    set ::ffmpeg::prefix        ${prefix}/libexec/ffmpeg${ffmpeg::version}
+
+    depends_lib-${action}       ${ffmpeg::port}
+    configure.pkg_config_path-${action} \
+                                ${ffmpeg::pkgconfig}
+    configure.cppflags-${action} \
+                                ${ffmpeg::cppflags}
+    configure.ldflags-${action} \
+                                ${ffmpeg::ldflags}
     if {[info exists cmake.prefix_path]} {
-        cmake.prefix_path-prepend   ${prefix}/libexec/ffmpeg[option ffmpeg.version]
+        cmake.prefix_path-${action} \
+                                ${ffmpeg::prefix}
     }
 }
 
+proc ffmpeg::configure_build {} {
+    ffmpeg::set_vars        delete
+    set ffmpeg::version     [option ffmpeg.version]
+    ffmpeg::set_vars        prepend
+}
+
+proc ffmpeg::version_proc {option action args} {
+    if {${action} ne "set"} return
+    ffmpeg::configure_build
+}
+
 port::register_callback ffmpeg::configure_build
+option_proc ffmpeg.version ffmpeg::version_proc
+
+set ffmpeg::version [option ffmpeg.version]
+ffmpeg::configure_build
