@@ -3,6 +3,7 @@
 PortSystem              1.0
 PortGroup               waf 1.0
 PortGroup               legacysupport 1.0
+PortGroup               ffmpeg 1.0
 
 # strnlen
 legacysupport.newest_darwin_requires_legacy 10
@@ -30,23 +31,21 @@ use_bzip2               yes
 
 waf.python_branch       3.10
 
-set ffmpeg_ver          4
+ffmpeg.version          4
 
 depends_build-append    path:bin/pkg-config:pkgconfig \
                         port:txt2man
 
 depends_skip_archcheck  txt2man
 
-depends_lib-append      port:ffmpeg${ffmpeg_ver} \
-                        port:fftw-3-single \
+depends_lib-append      port:fftw-3-single \
                         port:libsamplerate \
                         port:libsndfile
 
 patchfiles              patch-wscript.diff
 
+# ensure we link with the correct ffmpeg
 configure.env-append    PKG_CONFIG_SYSTEM_LIBRARY_PATH=${prefix}/lib
-configure.pkg_config_path-append \
-                        ${prefix}/libexec/ffmpeg${ffmpeg_ver}/lib/pkgconfig
 
 configure.args-append   --enable-fftw3f \
                         --disable-jack
