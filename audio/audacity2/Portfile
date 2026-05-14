@@ -3,6 +3,7 @@
 PortSystem          1.0
 
 PortGroup           github 1.0
+PortGroup           ffmpeg 1.0
 
 name                audacity2
 categories          audio
@@ -131,7 +132,7 @@ if {[variant_isset wxsystem]} {
                     port:libiconv
 }
 
-set ffmpeg_ver      4
+ffmpeg.version      4
 
 depends_build-append \
                     port:pkgconfig \
@@ -144,7 +145,6 @@ depends_lib-append  port:freetype \
                     port:soxr \
                     port:twolame \
                     port:expat \
-                    port:ffmpeg${ffmpeg_ver} \
                     port:flac \
                     port:lame \
                     port:libogg \
@@ -217,10 +217,6 @@ platform darwin {
 # dropped Carbon usage somewhere around 3.1.4 but drops support for 10.9- earlier. This is not
 # required when building against port:wxWidgets-3.1 but it won't hurt either.
 patchfiles-append   ${PPREFIX}patch-cmakefiles.diff
-
-cmake.prefix_path-append    ${prefix}/libexec/ffmpeg${ffmpeg_ver}
-configure.pkg_config_path-append \
-                    ${prefix}/libexec/ffmpeg${ffmpeg_ver}/lib/pkgconfig
 
 # quelch a huge number of warnings
 configure.cflags-append \
