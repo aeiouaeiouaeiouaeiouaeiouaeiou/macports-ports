@@ -65,7 +65,8 @@ depends_lib         port:a52dec \
                     port:xorg-xcb-util
 
 patchfiles-append   dynamic_lookup-11.patch \
-                    implicit.patch
+                    implicit.patch \
+                    incompatible-pointer-types.patch
 
 post-patch {
     # Use newer config.guess and config.sub to support Apple Silicon.
