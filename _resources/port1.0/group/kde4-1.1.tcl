@@ -61,8 +61,7 @@ proc kde4::configure_build {} {
     }
     set cmake_module_path   [join [list ${cmake_module_path} {*}[option cmake.module_path]] \;]
     configure.args-delete -DCMAKE_MODULE_PATH=${cmake_share_module_dir}
-    configure.args-append -DCMAKE_MODULE_PATH="${cmake_module_path}" \
-                          -DCMAKE_PREFIX_PATH="${cmake_module_path}"
+    configure.args-append -DCMAKE_MODULE_PATH="${cmake_module_path}"
 
     # standard configure args; virtually all KDE ports use CMake and Qt4.
     configure.args-append   -DBUILD_doc=OFF \
