@@ -4,6 +4,7 @@ PortSystem              1.0
 PortGroup               waf 1.0
 PortGroup               legacysupport 1.0
 PortGroup               ffmpeg 1.0
+PortGroup               limit_flags 1.0
 
 # strnlen
 legacysupport.newest_darwin_requires_legacy 10
@@ -43,9 +44,6 @@ depends_lib-append      port:fftw-3-single \
                         port:libsndfile
 
 patchfiles              patch-wscript.diff
-
-# ensure we link with the correct ffmpeg
-configure.env-append    PKG_CONFIG_SYSTEM_LIBRARY_PATH=${prefix}/lib
 
 configure.args-append   --enable-fftw3f \
                         --disable-jack
