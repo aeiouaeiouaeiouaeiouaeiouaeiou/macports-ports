@@ -27,7 +27,7 @@ depends_lib-append      port:ffmpeg${ffmpeg_ver} \
                         port:libpng \
                         port:zlib
 
-cmake.module_path       ${prefix}/libexec/ffmpeg${ffmpeg_ver}
+cmake.prefix_path       ${prefix}/libexec/ffmpeg${ffmpeg_ver}
 
 configure.args-append   -DENABLE_STATIC=ON \
                         -DENABLE_THUMBNAILER=ON \

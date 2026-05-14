@@ -218,7 +218,7 @@ platform darwin {
 # required when building against port:wxWidgets-3.1 but it won't hurt either.
 patchfiles-append   ${PPREFIX}patch-cmakefiles.diff
 
-cmake.module_path-append   ${prefix}/libexec/ffmpeg${ffmpeg_ver}
+cmake.prefix_path-append    ${prefix}/libexec/ffmpeg${ffmpeg_ver}
 configure.pkg_config_path-append \
                     ${prefix}/libexec/ffmpeg${ffmpeg_ver}/lib/pkgconfig
 

@@ -50,7 +50,7 @@ patchfiles      patch-ffmpegendanalyzer.diff \
 
 conflicts_build cppunit
 
-cmake.module_path           ${prefix}/libexec/ffmpeg${ffmpeg_ver}
+cmake.prefix_path           ${prefix}/libexec/ffmpeg${ffmpeg_ver}
 configure.pkg_config_path   ${prefix}/libexec/ffmpeg${ffmpeg_ver}/lib/pkgconfig
 
 # Best practice for CMake dictates that builds should be out of source.
