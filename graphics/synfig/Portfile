@@ -66,6 +66,8 @@ if {${subport} eq ${name}} {
                         port:openexr \
                         path:lib/pkgconfig/pango.pc:pango
 
+    patchfiles          patch-fix-template-error.diff
+
     configure.args      --with-boost=[boost::install_area]
 
     post-destroot {
