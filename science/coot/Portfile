@@ -5,7 +5,7 @@ PortGroup           boost 1.0
 PortGroup           github 1.0
 PortGroup           active_variants 1.1
 
-github.setup        pemsley coot 1.3 Release-
+github.setup        pemsley coot 1.3.1 Release-
 github.tarball_from archive
 conflicts           coot-devel
 revision            0
@@ -68,9 +68,9 @@ if {${subport} eq "coot-devel"} {
                     ${coot_distfile}:coot_source
     checksums-append \
                     ${coot_distfile} \
-                    rmd160  66a28104aee1f7922065e43881855f0dccd48fb5 \
-                    sha256  36d8902fad4466a549d5cba593ea4df59e183de9171d63a6c520dcf4fc9bfd59 \
-                    size    122086000
+                    rmd160  2167a314309eeacf2015ab238f31f0ceaa45fa0a \
+                    sha256  39069510b2bd499a407d5cc9202d4df591b353c344dd21aaf30e2ceab8260025 \
+                    size    122374683
     # FIXME, setting "worksrcdir" does not seem to work, neither does "extract.rename" since
     # there is more than one directory
     post-extract {
