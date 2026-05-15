@@ -32,7 +32,9 @@ if {${subport} in [list ${name} ${name}studio]} {
 }
 
 if {${subport} eq ${name}} {
-    revision            1
+    PortGroup           ffmpeg 1.0
+
+    revision            2
     checksums           rmd160  d8bc8a38524e657fcdc24edf5d7c7b4278920ab9 \
                         sha256  51a395f7dceb2ec51721043eb9b9f7149477a3399d92d624eef266f155521bc1 \
                         size    5219077
@@ -47,9 +49,10 @@ if {${subport} eq ${name}} {
                         at any resolution or framerate), high dynamic range \
                         images, and a flexible plugin system.
 
+    ffmpeg.version      4
+
     depends_lib         path:lib/pkgconfig/cairo.pc:cairo \
                         port:ETL \
-                        path:lib/libavcodec.dylib:ffmpeg \
                         port:freetype \
                         port:fontconfig \
                         port:gettext \
