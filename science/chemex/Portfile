@@ -4,7 +4,7 @@ PortSystem          1.0
 PortGroup           python 1.0
 
 name                chemex
-version             2026.4.0
+version             2026.5.0
 revision            0
 
 categories-prepend  science
@@ -18,9 +18,9 @@ long_description    {*}${description}
 
 homepage            https://github.com/gbouvignies/chemex
 
-checksums           rmd160  c0b5512a62389dec4b6374c4b0450570b1341b67 \
-                    sha256  b71fdd6e2ee4cfbe0bd09e0fc0e29f53c89eb9e4a3e98451a80ede7cac5db84a \
-                    size    139333
+checksums           rmd160  8c57d5586bada0939b5e6a6951086753c7ead1a1 \
+                    sha256  3247eb449024d700da04b140e4327479a56876c01fc79441d94c61cee0bc50b4 \
+                    size    139373
 
 python.default_version 314
 python.pep517_backend uv
