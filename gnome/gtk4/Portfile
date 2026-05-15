@@ -212,4 +212,3 @@ variant tests description "build tests" {
 
 livecheck.type      gnome
 livecheck.name      ${gname}
-livecheck.regex     "LATEST-IS-(${port_ver_major}\\.\\d*\[02468\](?:\\.\\d+)*)"
