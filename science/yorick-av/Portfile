@@ -3,7 +3,6 @@
 PortSystem          1.0
 PortGroup           github 1.0
 PortGroup           ffmpeg 1.0
-PortGroup           makefile 1.0
 
 set uname           av
 github.setup        paumard yorick-${uname} 0.0.6 v
@@ -30,6 +29,4 @@ depends_lib-append  path:bin/yorick:yorick
 # yorick is not universal
 universal_variant   no
 
-use_configure       yes
-
-build.args          Y_LDFLAGS="${configure.ldflags}"
+build.args          COPT="${configure.cppflags} ${configure.cflags} ${configure.ldflags}"
